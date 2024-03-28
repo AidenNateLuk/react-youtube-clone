@@ -1,0 +1,30 @@
+.top-bar {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  .logo {
+    height: 100%;
+  }
+  input {
+    display: none;
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  input.open {
+    display: block;
+  }
+  .top-r {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    .profile-icon {
+      background-color: orange;
+      height: 25px;
+      width: 25px;
+      border-radius: 100%;
+    }
+  }
+}
