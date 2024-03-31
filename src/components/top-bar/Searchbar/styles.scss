@@ -1,4 +1,34 @@
 .search__container {
+  margin: auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 90vw;
+  height: 5vh;
+  align-items: center;
+  .mic__icon {
+    padding: 0.25rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+  }
+  .search__bar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.25rem 0.5rem;
+    .search__bar__input {
+      border: none;
+      outline: none;
+      caret-color: transparent;
+      animation: blink-animation 1s infinite step-start;
+    }
+  }
+}
+@keyframes blink-animation {
+  50% {
+    caret-color: black;
+  }
 }
