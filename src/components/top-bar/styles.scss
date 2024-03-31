@@ -1,26 +1,93 @@
-.top-bar-top {
-  width: 90vw;
-  height: 5vh;
+.top-bar-container {
+  width: 100vw;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  .logo-container {
-    height: 200%;
-    .logo {
-      height: 100%;
-    }
-  }
+  flex-direction: column;
 
-  .top-r {
+  .top-bar-top {
+    width: 100%;
+    height: 5vh;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
-    .profile-icon {
-      background-color: orange;
-      height: 25px;
-      width: 25px;
-      border-radius: 100%;
+    align-items: center;
+    border-bottom: black 1px solid;
+    justify-content: space-between;
+
+    .logo-container {
+      height: 200%;
+      .logo {
+        height: 100%;
+      }
+    }
+
+    .top-r {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-around;
+      height: 100%;
+      align-items: center;
+      .profile-icon {
+        margin-right: 0.5rem;
+        background-color: orange;
+        height: 25px;
+        width: 25px;
+        border-radius: 100%;
+      }
+    }
+  }
+  .top-bar-bottom {
+    display: flex;
+    flex-direction: row;
+    height: 5vh;
+    align-items: center;
+    border-bottom: black 1px solid;
+    .explore__icon {
+      margin: 0 0.5rem;
+      padding: 0 0.5rem;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .top-bar-container {
+    position: absolute;
+    z-index: -3;
+
+    .top-bar-top {
+      .logo-container {
+        .logo {
+          position: absolute;
+          z-index: -3;
+        }
+      }
+      .search__icon {
+        display: none;
+      }
+      .search__container {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .top-bar-bottom {
+      display: none;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .top-bar-container {
+    position: absolute;
+    z-index: 0;
+    .top-bar-top {
+      .logo-container {
+        .logo {
+          position: absolute;
+          z-index: 0;
+        }
+      }
+      .top-r {
+        position: absolute;
+        right: 1rem;
+      }
     }
   }
 }
