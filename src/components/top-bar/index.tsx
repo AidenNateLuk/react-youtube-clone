@@ -4,12 +4,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import ExploreIcon from "@mui/icons-material/Explore";
 import { useState } from "react";
 import Searchbar from "./Searchbar";
-
-interface TopBarProps {
-  handleSearch: () => void;
-}
-
-const TopBar: React.FC<TopBarProps> = () => {
+import SideBar from "./Sidebar";
+const TopBar: React.FC = () => {
   const [isSearching, setIsSearching] = useState(false);
   const handleSearch = () => {
     setIsSearching(!isSearching);
@@ -21,6 +17,7 @@ const TopBar: React.FC<TopBarProps> = () => {
         <div className="logo-container">
           <img className="logo" src={LogoWhite} alt="Logo" />
         </div>
+        <SideBar />
         <Searchbar
           className="search__container"
           isSearching={isSearching}
