@@ -1,10 +1,10 @@
 import "./styles.scss";
-import LogoWhite from "../../assets/LogoWhite.svg";
+import LogoWhite from "../../../assets/LogoWhite.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import ExploreIcon from "@mui/icons-material/Explore";
 import { useState } from "react";
-import Searchbar from "./Searchbar";
-import SideBar from "./Sidebar";
+import Searchbar from "../Searchbar";
+import SideBar from "../Sidebar";
 const TopBar: React.FC = () => {
   const [isSearching, setIsSearching] = useState(false);
   const handleSearch = () => {

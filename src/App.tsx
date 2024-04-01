@@ -1,4 +1,4 @@
-import TopBar from "./components/top-bar";
+import TopBar from "./components/nav-bars/TopBar";
 const App: React.FC = () => {
   return (
     <div>
