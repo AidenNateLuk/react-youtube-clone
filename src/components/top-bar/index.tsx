@@ -12,10 +12,9 @@ const TopBar: React.FC = () => {
   };
   const [sidebarWidth, setSidebarWidth] = useState(100);
   const updateSidebarWidth = () => {
-    console.log(sidebarWidth);
     setSidebarWidth((prevWidth) => (prevWidth == 100 ? 250 : 100));
-    console.log(sidebarWidth);
   };
+
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
@@ -37,7 +36,10 @@ const TopBar: React.FC = () => {
         </div>
       </div>
       <div className="top-bar-bottom">
-        <ExploreIcon className="explore__icon" />
+        <ExploreIcon
+          className="explore__icon"
+          onClick={() => updateSidebarWidth()}
+        />
       </div>
     </div>
   );

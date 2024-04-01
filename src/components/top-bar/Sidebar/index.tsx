@@ -14,15 +14,22 @@ const SideBar: React.FC<SideBarProps> = ({
 }) => {
   return (
     <>
-      <MenuIcon className="menu__icon" onClick={updateSidebarWidth} />
       {sidebarWidth < 100 ? (
         <div className="sidebar" style={{ width: sidebarWidth }}>
+          <MenuIcon className="menu__icon" onClick={updateSidebarWidth} />
           <div>
             <p>smaller than 100</p>
           </div>
         </div>
       ) : (
-        <div className="sidebar" style={{ width: sidebarWidth }}>
+        <div
+          className={sidebarWidth > 100 ? "sidebar open" : "sidebar"}
+          style={{ width: sidebarWidth }}
+        >
+          <MenuIcon
+            className="menu__icon"
+            onClick={() => updateSidebarWidth()}
+          />
           <div>
             <p>larger than 100</p>
           </div>
