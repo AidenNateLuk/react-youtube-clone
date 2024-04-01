@@ -4,15 +4,14 @@ import "./styles.scss";
 // import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 // import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
-
-const SideBar = () => {
-  const [sidebarWidth, setSidebarWidth] = useState(100);
-  const updateSidebarWidth = () => {
-    console.log(sidebarWidth);
-    setSidebarWidth((prevWidth) => (prevWidth == 100 ? 250 : 100));
-    console.log(sidebarWidth);
-  };
+interface SideBarProps {
+  updateSidebarWidth: () => void;
+  sidebarWidth: number;
+}
+const SideBar: React.FC<SideBarProps> = ({
+  updateSidebarWidth,
+  sidebarWidth,
+}) => {
   return (
     <>
       <MenuIcon className="menu__icon" onClick={updateSidebarWidth} />

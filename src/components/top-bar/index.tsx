@@ -10,14 +10,22 @@ const TopBar: React.FC = () => {
   const handleSearch = () => {
     setIsSearching(!isSearching);
   };
-
+  const [sidebarWidth, setSidebarWidth] = useState(100);
+  const updateSidebarWidth = () => {
+    console.log(sidebarWidth);
+    setSidebarWidth((prevWidth) => (prevWidth == 100 ? 250 : 100));
+    console.log(sidebarWidth);
+  };
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
         <div className="logo-container">
           <img className="logo" src={LogoWhite} alt="Logo" />
         </div>
-        <SideBar />
+        <SideBar
+          updateSidebarWidth={updateSidebarWidth}
+          sidebarWidth={sidebarWidth}
+        />
         <Searchbar
           className="search__container"
           isSearching={isSearching}

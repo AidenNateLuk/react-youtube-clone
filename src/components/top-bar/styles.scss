@@ -1,7 +1,6 @@
 .top-bar-container {
   width: 100vw;
   height: 10vh;
-
   .top-bar-top {
     width: 100%;
     height: 5vh;
@@ -10,10 +9,11 @@
     align-items: center;
     border-bottom: black 1px solid;
     justify-content: space-between;
-
     .logo-container {
       height: 200%;
       .logo {
+        position: absolute;
+        left: 5.5rem;
         height: 100%;
       }
     }
