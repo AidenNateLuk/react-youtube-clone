@@ -5,6 +5,8 @@ import ExploreIcon from "@mui/icons-material/Explore";
 import { useState } from "react";
 import Searchbar from "../Searchbar";
 import SideBar from "../Sidebar";
+import MenuIcon from "@mui/icons-material/Menu";
+
 const TopBar: React.FC = () => {
   const [isSearching, setIsSearching] = useState(false);
   const handleSearch = () => {
@@ -18,13 +20,11 @@ const TopBar: React.FC = () => {
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
+        <MenuIcon onClick={() => updateSidebarWidth()} />
         <div className="logo-container">
           <img className="logo" src={LogoWhite} alt="Logo" />
         </div>
-        <SideBar
-          updateSidebarWidth={updateSidebarWidth}
-          sidebarWidth={sidebarWidth}
-        />
+        <SideBar sidebarWidth={sidebarWidth} />
         <Searchbar
           className="search__container"
           isSearching={isSearching}

@@ -1,11 +1,9 @@
 .search__container.open {
   background-color: white;
-  display: block;
-  margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 100vw;
+  justify-content: space-evenly;
+  gap: 1rem;
   z-index: 30;
   height: 5vh;
   align-items: center;
@@ -15,51 +13,58 @@
     border-radius: 50%;
   }
   .search__bar {
+    width: 50%;
+    height: 80%;
     display: flex;
     align-items: center;
-    flex-direction: row;
     gap: 1rem;
     border-radius: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 0.25rem 0.5rem;
+
     .search__bar__input {
-      width: 100%;
-      height: 100%;
+      padding: 0 0.5rem;
+      border-radius: 15px;
+      width: 80%;
+      height: 80%;
       border: none;
       outline: none;
       caret-color: transparent;
       animation: blink-animation 1s infinite step-start;
     }
+    .search__icon__container {
+      width: 20%;
+      height: 100%;
+      background-color: rgb(228, 228, 228);
+      border-radius: 0 15px 15px 0;
+      display: flex;
+      .search__bar__icon {
+        margin: auto;
+      }
+    }
   }
 }
 .search__container {
   display: none;
+  width: 100vw;
+  position: absolute;
 }
 @keyframes blink-animation {
   50% {
     caret-color: black;
   }
 }
-@media (max-width: 768px) {
-  .search_container.open {
-    position: absolute;
-    top: 0;
-    z-index: 20;
-  }
-}
 
 @media (min-width: 768px) {
   .search__container {
     position: absolute;
-    display: block;
-    margin: auto;
+    left: 30rem;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     gap: 1rem;
-    width: 90vw;
+    width: 40vw;
     height: 5vh;
     align-items: center;
+
     .mic__icon {
       padding: 0.25rem;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -71,12 +76,8 @@
     .search__bar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      border-radius: 5rem;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem 2rem;
-      width: 20rem;
+
       .search__bar__input {
         border: none;
         outline: none;

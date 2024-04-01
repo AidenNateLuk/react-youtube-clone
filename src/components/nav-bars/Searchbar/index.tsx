@@ -20,7 +20,9 @@ const Searchbar: React.FC<SearchbarProps> = ({ handleSearch, isSearching }) => {
             className="search__bar__input"
             placeholder="Search Youtube"
           />
-          <SearchIcon className="search-bar__icon" />
+          <div className="search__icon__container">
+            <SearchIcon className="search__bar__icon" />
+          </div>
         </div>
         <MicIcon className="mic__icon" />
       </div>
