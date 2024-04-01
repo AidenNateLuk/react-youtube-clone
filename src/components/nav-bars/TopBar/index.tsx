@@ -7,20 +7,19 @@ import Searchbar from "../Searchbar";
 import SideBar from "../Sidebar";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const TopBar: React.FC = () => {
+interface SideBarProps {
+  sidebarWidth: number;
+  openSidebarWidth: () => void;
+}
+const TopBar: React.FC<SideBarProps> = ({ openSidebarWidth, sidebarWidth }) => {
   const [isSearching, setIsSearching] = useState(false);
   const handleSearch = () => {
     setIsSearching(!isSearching);
   };
-  const [sidebarWidth, setSidebarWidth] = useState(100);
-  const updateSidebarWidth = () => {
-    setSidebarWidth((prevWidth) => (prevWidth == 100 ? 250 : 100));
-  };
-
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
-        <MenuIcon onClick={() => updateSidebarWidth()} />
+        <MenuIcon className="menu__icon" onClick={() => openSidebarWidth()} />
         <div className="logo-container">
           <img className="logo" src={LogoWhite} alt="Logo" />
         </div>
@@ -38,7 +37,7 @@ const TopBar: React.FC = () => {
       <div className="top-bar-bottom">
         <ExploreIcon
           className="explore__icon"
-          onClick={() => updateSidebarWidth()}
+          onClick={() => openSidebarWidth()}
         />
       </div>
     </div>
