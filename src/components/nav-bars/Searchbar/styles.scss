@@ -1,6 +1,6 @@
-.search__container.open {
+.search__container {
   background-color: white;
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: space-evenly;
   gap: 1rem;
@@ -43,8 +43,8 @@
     }
   }
 }
-.search__container {
-  display: none;
+.search__container.open {
+  display: flex;
   width: 100vw;
   position: absolute;
 }
