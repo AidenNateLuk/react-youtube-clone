@@ -1,7 +1,6 @@
 import "./styles.scss";
 import LogoWhite from "../../../assets/LogoWhite.svg";
 import SearchIcon from "@mui/icons-material/Search";
-import ExploreIcon from "@mui/icons-material/Explore";
 import { useState } from "react";
 import Searchbar from "../Searchbar";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -36,12 +35,6 @@ const TopBar: React.FC<TopBarProps> = ({ updateSidebarWidth }) => {
           <SearchIcon className="search__icon" onClick={() => handleSearch()} />
           <div className="profile-icon"></div>
         </div>
-      </div>
-      <div className="top-bar-bottom">
-        <ExploreIcon
-          className="explore__icon"
-          onClick={() => updateSidebarWidth()}
-        />
       </div>
     </div>
   );
