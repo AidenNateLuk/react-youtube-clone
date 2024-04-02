@@ -19,7 +19,14 @@ const App: React.FC = () => {
         />
       </div>
       <SideBar sidebarWidth={sidebarWidth} />
-      <HomePage updateSidebarWidth={updateSidebarWidth} />
+      <div
+        className={
+          sidebarWidth < 250 ? "side__bar__toggle" : "side__bar__toggle active"
+        }
+        onClick={updateSidebarWidth}
+      >
+        <HomePage updateSidebarWidth={updateSidebarWidth} />
+      </div>
     </div>
   );
 };
