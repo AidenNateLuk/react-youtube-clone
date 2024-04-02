@@ -25,7 +25,7 @@
   }
 }
 @media (max-width: 768px) {
-  .sidebar {
+  .sidebar.closed {
     display: none;
     position: absolute;
     top: 0;
