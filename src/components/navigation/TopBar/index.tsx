@@ -18,9 +18,14 @@ const TopBar: React.FC<TopBarProps> = ({ updateSidebarWidth }) => {
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
-        <MenuIcon className="menu__icon" onClick={() => updateSidebarWidth()} />
-        <div className="logo-container">
-          <img className="logo" src={LogoWhite} alt="Logo" />
+        <div className="top-l">
+          <MenuIcon
+            className="menu__icon"
+            onClick={() => updateSidebarWidth()}
+          />
+          <div className="logo-container">
+            <img className="logo" src={LogoWhite} alt="Logo" />
+          </div>
         </div>
         <Searchbar
           className="search__container"

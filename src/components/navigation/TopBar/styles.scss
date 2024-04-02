@@ -1,22 +1,27 @@
 .top-bar-container {
   display: flex;
   flex-direction: column;
-
   height: 10%;
   .top-bar-top {
     height: 5vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 0.5rem 0;
     border-bottom: black 1px solid;
-    .logo-container {
-      .logo {
+    .top-l {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo-container {
         height: 10vh;
+        .logo {
+          height: 10vh;
+        }
       }
-    }
-    .menu__icon {
-      display: none;
+      .menu__icon {
+        display: none;
+      }
     }
     .top-r {
       display: flex;
@@ -45,9 +50,16 @@
 @media (min-width: 768px) {
   .top-bar-container {
     .top-bar-top {
-      .menu__icon {
-        display: block;
-        padding: 0 1rem;
+      .top-l {
+        .menu__icon {
+          display: block;
+          padding: 0 1rem;
+        }
+      }
+    }
+    .top-bar-bottom {
+      .explore__icon {
+        display: none;
       }
     }
   }
