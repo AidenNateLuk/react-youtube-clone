@@ -1,4 +1,4 @@
-.sidebar {
+.sidebar.closed {
   background-color: white;
   z-index: 100;
   display: flex;
@@ -6,10 +6,22 @@
   align-items: center;
   height: 100vh;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  .menu__icon {
-    font-size: 2.25rem;
-    position: absolute;
-    left: 2rem;
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+}
+.sidebar.open {
+  a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem 0;
+    gap: 1rem;
+    text-align: left;
   }
 }
 @media (max-width: 768px) {

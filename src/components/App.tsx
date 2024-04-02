@@ -9,7 +9,7 @@ const App: React.FC = () => {
     setSidebarWidth((prevWidth) => (prevWidth == 100 ? 250 : 100));
   };
   return (
-    <>
+    <div className="app__container">
       <TopBar
         updateSidebarWidth={updateSidebarWidth}
         sidebarWidth={sidebarWidth}
@@ -20,11 +20,14 @@ const App: React.FC = () => {
         }
         onClick={updateSidebarWidth}
       ></div>
-      <div className="app__container">
+      <div className="app__main">
         <SideBar sidebarWidth={sidebarWidth} />
-        <HomePage updateSidebarWidth={updateSidebarWidth} />
+        <HomePage
+          updateSidebarWidth={updateSidebarWidth}
+          sidebarWidth={sidebarWidth}
+        />
       </div>
-    </>
+    </div>
   );
 };
 export default App;
