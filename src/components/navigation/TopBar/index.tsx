@@ -4,14 +4,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import ExploreIcon from "@mui/icons-material/Explore";
 import { useState } from "react";
 import Searchbar from "../Searchbar";
-import SideBar from "../Sidebar";
 import MenuIcon from "@mui/icons-material/Menu";
 
-interface SideBarProps {
+interface TopBarProps {
   sidebarWidth: number;
-  openSidebarWidth: () => void;
+  updateSidebarWidth: () => void;
 }
-const TopBar: React.FC<SideBarProps> = ({ openSidebarWidth, sidebarWidth }) => {
+const TopBar: React.FC<TopBarProps> = ({ updateSidebarWidth }) => {
   const [isSearching, setIsSearching] = useState(false);
   const handleSearch = () => {
     setIsSearching(!isSearching);
@@ -19,11 +18,10 @@ const TopBar: React.FC<SideBarProps> = ({ openSidebarWidth, sidebarWidth }) => {
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
-        <MenuIcon className="menu__icon" onClick={() => openSidebarWidth()} />
+        <MenuIcon className="menu__icon" onClick={() => updateSidebarWidth()} />
         <div className="logo-container">
           <img className="logo" src={LogoWhite} alt="Logo" />
         </div>
-        <SideBar sidebarWidth={sidebarWidth} />
         <Searchbar
           className="search__container"
           isSearching={isSearching}
@@ -37,7 +35,7 @@ const TopBar: React.FC<SideBarProps> = ({ openSidebarWidth, sidebarWidth }) => {
       <div className="top-bar-bottom">
         <ExploreIcon
           className="explore__icon"
-          onClick={() => openSidebarWidth()}
+          onClick={() => updateSidebarWidth()}
         />
       </div>
     </div>

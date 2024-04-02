@@ -1,9 +1,9 @@
 interface HomePageProps {
-  closeSidebarWidth: () => void;
+  updateSidebarWidth: () => void;
 }
-export const HomePage: React.FC<HomePageProps> = ({ closeSidebarWidth }) => {
+export const HomePage: React.FC<HomePageProps> = ({ updateSidebarWidth }) => {
   return (
-    <div className="homepage__container" onClick={() => closeSidebarWidth()}>
+    <div className="homepage__container" onClick={() => updateSidebarWidth()}>
       <p>Hello-Test</p>
     </div>
   );
