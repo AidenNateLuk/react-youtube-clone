@@ -1,29 +1,29 @@
 .top-bar-container {
+  display: flex;
+  flex-direction: column;
   width: 99vw;
-  height: 10vh;
+  height: 10%;
   .top-bar-top {
     width: 100%;
     height: 5vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0.5rem 0;
     border-bottom: black 1px solid;
     .logo-container {
       height: 200%;
       .logo {
-        position: absolute;
-        left: 5.5rem;
-        height: 100%;
+        height: 10vh;
       }
     }
     .menu__icon {
-      position: absolute;
-      left: 2rem;
+      display: none;
+      padding: 0 1rem;
     }
     .top-r {
-      position: absolute;
-      right: 5rem;
       display: flex;
+      gap: 1rem;
       .profile-icon {
         background-color: orange;
         height: 25px;
@@ -45,42 +45,11 @@
     }
   }
 }
-
 @media (min-width: 768px) {
   .top-bar-container {
-    position: absolute;
-    .top-bar-top {
-      .logo-container {
-        .logo {
-          position: absolute;
-          z-index: -3;
-        }
-      }
-      .search__icon {
-        display: none;
-      }
-    }
-    .top-bar-bottom {
-      .explore__icon {
-        display: none;
-      }
-    }
-  }
-}
-@media (max-width: 768px) {
-  .top-bar-container {
-    position: absolute;
-    z-index: 0;
     .top-bar-top {
       .menu__icon {
-        display: none;
-      }
-      .logo-container {
-        .logo {
-          position: absolute;
-          z-index: 0;
-          left: 0;
-        }
+        display: block;
       }
     }
   }

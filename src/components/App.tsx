@@ -1,6 +1,7 @@
 import { HomePage } from "./Homepage";
-import TopBar from "./nav-bars/TopBar";
+import TopBar from "./navigation/TopBar";
 import { useState } from "react";
+import "./App.scss";
 const App: React.FC = () => {
   const [sidebarWidth, setSidebarWidth] = useState(100);
   const openSidebarWidth = () => {
@@ -11,7 +12,7 @@ const App: React.FC = () => {
   };
   return (
     <div className="app__container">
-      <div>
+      <div className="header">
         <TopBar
           openSidebarWidth={openSidebarWidth}
           sidebarWidth={sidebarWidth}
