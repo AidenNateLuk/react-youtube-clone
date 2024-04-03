@@ -4,9 +4,9 @@ import SideBar from "./navigation/Sidebar";
 import { useState } from "react";
 import "./App.scss";
 const App: React.FC = () => {
-  const [sidebarWidth, setSidebarWidth] = useState(100);
+  const [sidebarWidth, setSidebarWidth] = useState(75);
   const updateSidebarWidth = () => {
-    setSidebarWidth((prevWidth) => (prevWidth == 100 ? 250 : 100));
+    setSidebarWidth((prevWidth) => (prevWidth == 75 ? 175 : 75));
   };
   const [notificationState, setNotificationState] = useState(false);
   const updateNotificationState = () => {
@@ -22,7 +22,7 @@ const App: React.FC = () => {
       />
       <div
         className={
-          sidebarWidth < 250 ? "side__bar__toggle" : "side__bar__toggle active"
+          sidebarWidth < 175 ? "side__bar__toggle" : "side__bar__toggle active"
         }
         onClick={updateSidebarWidth}
       ></div>
