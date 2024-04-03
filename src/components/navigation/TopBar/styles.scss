@@ -11,7 +11,6 @@
     border-bottom: black 1px solid;
     .top-l {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       .logo-container {
         height: 10vh;
@@ -37,6 +36,7 @@
 }
 @media (min-width: 768px) {
   .top-bar-container {
+    position: fixed;
     .top-bar-top {
       .top-l {
         .menu__icon {

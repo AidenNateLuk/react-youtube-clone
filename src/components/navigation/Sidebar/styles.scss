@@ -1,4 +1,6 @@
 .sidebar {
+  position: fixed;
+  top: 5.05rem;
   background-color: white;
   z-index: 100;
   display: flex;
@@ -49,9 +51,10 @@
     transform: translateX(-200px);
     width: 0;
     content-visibility: hidden;
+    transition: width 0.5s ease-out;
   }
   .sidebar.open {
     display: block;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease-in;
   }
 }

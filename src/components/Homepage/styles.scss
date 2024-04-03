@@ -1,10 +1,7 @@
 .homepage__container {
-  display: flex;
-  justify-content: flex-end;
   .top-bar-bottom {
     height: 5vh;
     width: 100vw;
-    overflow-x: hidden;
     border-bottom: black 1px solid;
     display: flex;
     align-items: center;
@@ -13,13 +10,11 @@
 @media (min-width: 768px) {
   .homepage__container {
     .top-bar-bottom {
-      width: 94vw;
+      position: fixed;
+      top: 5rem;
       .explore__icon {
         display: none;
       }
-    }
-    .top-bar-bottom.active {
-      width: 86.3vw;
     }
   }
 }
