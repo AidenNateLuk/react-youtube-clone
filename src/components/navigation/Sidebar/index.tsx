@@ -12,57 +12,63 @@ const SideBar: React.FC<SideBarProps> = ({ sidebarWidth }) => {
     <>
       {sidebarWidth < 175 ? (
         <div className="sidebar closed">
-          <a href="">
-            <HomeIcon />
-            Home
-          </a>
-          <a href="">
-            <SlideshowIcon />
-            Shorts
-          </a>
-          <a href="">
-            <SubscriptionsIcon />
-            Subscriptions
-          </a>
-          <a href="">
-            <PermIdentityIcon />
-            You
-          </a>
-        </div>
-      ) : (
-        <div className={sidebarWidth > 75 ? "sidebar open" : "sidebar closed"}>
-          <div className="nav__section">
+          <div className="sidebar__content">
             <a href="">
-              <HomeIcon />
+              <HomeIcon className="sidebar__icon" />
               Home
             </a>
             <a href="">
-              <SlideshowIcon />
+              <SlideshowIcon className="sidebar__icon" />
               Shorts
             </a>
             <a href="">
-              <SubscriptionsIcon />
+              <SubscriptionsIcon className="sidebar__icon" />
               Subscriptions
             </a>
-          </div>
-          <div className="user__section">
-            <h3>
+            <a href="">
+              <PermIdentityIcon className="sidebar__icon" />
               You
-              <KeyboardArrowRightIcon />
-            </h3>
-            <a href="">Your channel</a>
-            <a href="">History</a>
-            <a href="">Your videos</a>
-            <a href="">Watch later</a>
-            <a href="">Liked videos</a>
+            </a>
           </div>
-          <div className="subs__section">
-            <div className="subscribed__channel">
-              <div className="channel__photo">
-                <img />
+        </div>
+      ) : (
+        <div className={sidebarWidth > 75 ? "sidebar open" : "sidebar closed"}>
+          <div className="sidebar__content">
+            <div className="nav__section">
+              <a href="">
+                <HomeIcon className="sidebar__icon" />
+                Home
+              </a>
+              <a href="">
+                <SlideshowIcon className="sidebar__icon" />
+                Shorts
+              </a>
+              <a href="">
+                <SubscriptionsIcon className="sidebar__icon" />
+                Subscriptions
+              </a>
+            </div>
+            <div className="user__section">
+              <div className="user__title">
+                <h3>
+                  You
+                  <KeyboardArrowRightIcon className="sidebar__icon" />
+                </h3>
               </div>
-              <div className="channel__name">
-                <p>Test Channel</p>
+              <a href="">Your channel</a>
+              <a href="">History</a>
+              <a href="">Your videos</a>
+              <a href="">Watch later</a>
+              <a href="">Liked videos</a>
+            </div>
+            <div className="subs__section">
+              <div className="subscribed__channel">
+                <div className="channel__photo">
+                  <img />
+                </div>
+                <div className="channel__name">
+                  <p>Test Channel</p>
+                </div>
               </div>
             </div>
           </div>
