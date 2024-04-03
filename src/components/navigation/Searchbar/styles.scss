@@ -34,7 +34,7 @@
       border: none;
       outline: none;
       caret-color: transparent;
-      animation: blink-animation 1s infinite step-start;
+      animation: blink-animation 10s infinite step-start;
     }
     ::placeholder {
       color: white;
@@ -58,7 +58,8 @@
 }
 @keyframes blink-animation {
   50% {
-    caret-color: black;
+    caret-color: white;
+    font-weight: 500;
   }
 }
 
