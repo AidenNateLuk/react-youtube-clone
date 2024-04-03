@@ -50,10 +50,8 @@ const SideBar: React.FC<SideBarProps> = ({ sidebarWidth }) => {
             </div>
             <div className="user__section">
               <div className="user__title">
-                <h3>
-                  You
-                  <KeyboardArrowRightIcon className="sidebar__icon" />
-                </h3>
+                <h3>You</h3>
+                <KeyboardArrowRightIcon className="sidebar__icon" />
               </div>
               <a href="">Your channel</a>
               <a href="">History</a>

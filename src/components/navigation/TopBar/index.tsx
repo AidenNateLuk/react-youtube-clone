@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./styles.scss";
-import LogoWhite from "../../../assets/LogoWhite.svg";
+import LogoDark from "../../../assets/LogoDark.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import Searchbar from "../Searchbar";
 import ExploreIcon from "@mui/icons-material/Explore";
@@ -30,9 +30,10 @@ const TopBar: React.FC<TopBarProps> = ({
           <MenuIcon
             className="menu__icon"
             onClick={() => updateSidebarWidth()}
+            style={{ color: "white" }}
           />
           <div className="logo-container">
-            <img className="logo" src={LogoWhite} alt="Logo" />
+            <img className="logo" src={LogoDark} alt="Logo" />
           </div>
         </div>
         <Searchbar
@@ -42,14 +43,19 @@ const TopBar: React.FC<TopBarProps> = ({
         />
         <div className="top-r">
           <SearchIcon className="search__icon" onClick={() => handleSearch()} />
-          <VideoCallIcon className="create__video__icon" />
+          <VideoCallIcon
+            className="create__video__icon"
+            style={{ color: "white" }}
+          />
           {!notificationState ? (
             <NotificationsNoneIcon
+              style={{ color: "white" }}
               className="notifications__icon"
               onClick={() => updateNotificationState()}
             />
           ) : (
             <NotificationsIcon
+              style={{ color: "white" }}
               className="notifications__icon"
               onClick={() => updateNotificationState()}
             />
@@ -58,10 +64,15 @@ const TopBar: React.FC<TopBarProps> = ({
         </div>
       </div>
       <div className={"top-bar-bottom "}>
-        <ExploreIcon
-          className="explore__icon"
-          onClick={() => updateSidebarWidth()}
-        />
+        <div className="bottom__nav__icon__container">
+          <ExploreIcon
+            className="explore__icon"
+            onClick={() => updateSidebarWidth()}
+          />
+        </div>
+        <div className="bottom__nav__item__container">
+          <p>All</p>
+        </div>
       </div>
     </div>
   );
