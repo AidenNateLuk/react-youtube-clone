@@ -13,7 +13,11 @@ const Searchbar: React.FC<SearchbarProps> = ({ handleSearch, isSearching }) => {
       <div
         className={isSearching ? "search__container open" : "search__container"}
       >
-        <ArrowBackIcon onClick={() => handleSearch()} className="arrow__icon" />
+        <ArrowBackIcon
+          onClick={() => handleSearch()}
+          className="arrow__icon"
+          style={{ color: "white" }}
+        />
         <div className="search__bar">
           <input
             type="text"
@@ -24,7 +28,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ handleSearch, isSearching }) => {
             <SearchIcon className="search__bar__icon" />
           </div>
         </div>
-        <MicIcon className="mic__icon" />
+        <MicIcon className="mic__icon" style={{ color: "white" }} />
       </div>
     </>
   );

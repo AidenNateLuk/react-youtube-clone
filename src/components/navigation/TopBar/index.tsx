@@ -42,7 +42,11 @@ const TopBar: React.FC<TopBarProps> = ({
           handleSearch={handleSearch}
         />
         <div className="top-r">
-          <SearchIcon className="search__icon" onClick={() => handleSearch()} />
+          <SearchIcon
+            className="search__icon"
+            onClick={() => handleSearch()}
+            style={{ color: "white" }}
+          />
           <VideoCallIcon
             className="create__video__icon"
             style={{ color: "white" }}
@@ -68,6 +72,7 @@ const TopBar: React.FC<TopBarProps> = ({
           <ExploreIcon
             className="explore__icon"
             onClick={() => updateSidebarWidth()}
+            style={{ color: "white" }}
           />
         </div>
         <div className="bottom__nav__item__container">
