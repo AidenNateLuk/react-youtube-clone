@@ -8,11 +8,17 @@ const App: React.FC = () => {
   const updateSidebarWidth = () => {
     setSidebarWidth((prevWidth) => (prevWidth == 100 ? 250 : 100));
   };
+  const [notificationState, setNotificationState] = useState(false);
+  const updateNotificationState = () => {
+    setNotificationState((prevState) => !prevState);
+  };
   return (
     <div className="app__container">
       <TopBar
         updateSidebarWidth={updateSidebarWidth}
         sidebarWidth={sidebarWidth}
+        updateNotificationState={updateNotificationState}
+        notificationState={notificationState}
       />
       <div
         className={
