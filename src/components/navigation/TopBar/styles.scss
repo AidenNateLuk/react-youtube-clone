@@ -1,5 +1,5 @@
 .top-bar-container {
-  width: 100%;
+  width: 100vw;
   height: 10%;
   .top-bar-top {
     padding: 1rem 0;
@@ -7,9 +7,10 @@
     height: 5vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     border-bottom: black 1px solid;
     .top-l {
+      position: absolute;
+      left: 1rem;
       display: flex;
       align-items: center;
       .logo-container {
@@ -23,8 +24,16 @@
       }
     }
     .top-r {
+      position: absolute;
+      right: 1rem;
       display: flex;
       gap: 1rem;
+      .create__video__icon {
+        display: none;
+      }
+      .notifications__icon {
+        display: none;
+      }
       .profile-icon {
         background-color: orange;
         height: 25px;
@@ -44,6 +53,12 @@
         }
       }
       .top-r {
+        .notifications__icon {
+          display: block;
+        }
+        .create__video__icon {
+          display: block;
+        }
         .search__icon {
           display: none;
         }

@@ -35,17 +35,23 @@ const TopBar: React.FC<TopBarProps> = ({
           </div>
         </div>
         <Searchbar
-          className="search__container"
+          className="search__component"
           isSearching={isSearching}
           handleSearch={handleSearch}
         />
         <div className="top-r">
           <SearchIcon className="search__icon" onClick={() => handleSearch()} />
-          <VideoCallIcon />
+          <VideoCallIcon className="create__video__icon" />
           {!notificationState ? (
-            <NotificationsNoneIcon onClick={() => updateNotificationState()} />
+            <NotificationsNoneIcon
+              className="notifications__icon"
+              onClick={() => updateNotificationState()}
+            />
           ) : (
-            <NotificationsIcon onClick={() => updateNotificationState()} />
+            <NotificationsIcon
+              className="notifications__icon"
+              onClick={() => updateNotificationState()}
+            />
           )}
           <div className="profile-icon"></div>
         </div>
