@@ -24,6 +24,7 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
     .search__bar__input {
+      cursor: pointer;
       background-color: $black-primary;
       border: $border-color 1px solid;
       color: white;
@@ -78,6 +79,12 @@
       padding: 0.25rem;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
       border-radius: 50%;
+      cursor: pointer;
+      height: 2rem;
+      width: 2rem;
+    }
+    .mic__icon:hover {
+      background-color: rgba(255, 255, 255, 0.24);
     }
     .arrow__icon {
       display: none;

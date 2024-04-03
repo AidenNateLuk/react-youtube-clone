@@ -20,9 +20,16 @@
       }
     }
   }
-  a {
-    text-decoration: none;
-    color: white;
+  .sidebar__path {
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      border-radius: 8px;
+    }
+  }
+  .sidebar__path:hover {
+    background-color: rgba(255, 255, 255, 0.24);
   }
 }
 .sidebar::-webkit-scrollbar {
@@ -37,14 +44,17 @@
   height: 100vh;
   width: 75px;
   .sidebar__content {
-    a {
-      font-size: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem 0;
-      .sidebar__icon {
-        font-size: 1.5rem;
+    .sidebar__path {
+      border-radius: 8px;
+      a {
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        .sidebar__icon {
+          font-size: 1.5rem;
+        }
       }
     }
   }
@@ -54,12 +64,18 @@
   width: 175px;
   .sidebar__content {
     gap: 1rem;
-    a {
+    .sidebar__path {
+      border-radius: 5px;
       display: flex;
-      align-items: center;
-      padding: 1rem 0;
-      gap: 1rem;
-      text-align: left;
+      width: 100%;
+      a {
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 1rem;
+        text-align: left;
+      }
     }
   }
 }

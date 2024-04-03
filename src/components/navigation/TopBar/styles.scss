@@ -21,11 +21,19 @@
       .logo-container {
         height: 5.5rem;
         .logo {
+          cursor: pointer;
           height: 5.5rem;
         }
       }
       .menu__icon {
+        height: 2rem;
+        width: 1.75rem;
+        cursor: pointer;
         display: none;
+      }
+      .menu__icon:hover {
+        background-color: rgba(255, 255, 255, 0.24);
+        border-radius: 50%;
       }
     }
     .top-r {
@@ -36,8 +44,16 @@
       .create__video__icon {
         display: none;
       }
+      .create__video__icon:hover {
+        background-color: rgba(255, 255, 255, 0.24);
+        border-radius: 50%;
+      }
       .notifications__icon {
         display: none;
+      }
+      .notifications__icon:hover {
+        background-color: rgba(255, 255, 255, 0.24);
+        border-radius: 50%;
       }
       .profile-icon {
         background-color: orange;
@@ -57,6 +73,7 @@
     gap: 0.5rem;
     overflow-x: scroll;
     .bottom__nav__icon__container {
+      cursor: pointer;
       padding: 0.25rem 0;
       border-radius: 5px;
       border: 1px white solid;
@@ -66,6 +83,7 @@
       justify-content: center;
     }
     .bottom__nav__item__container {
+      cursor: pointer;
       color: white;
       padding: 0.4rem 0;
       border-radius: 8px;
@@ -95,8 +113,10 @@
       .top-r {
         .notifications__icon {
           display: block;
+          cursor: pointer;
         }
         .create__video__icon {
+          cursor: pointer;
           display: block;
         }
         .search__icon {
