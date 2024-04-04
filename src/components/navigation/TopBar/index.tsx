@@ -44,7 +44,8 @@ const TopBar: React.FC<TopBarProps> = ({
           <SearchIcon
             className="search__icon"
             onClick={() => handleSearch()}
-            style={{ color: "white" }}
+            style={{ color: "white", fontFamily: "Roboto", fontWeight: 100 }}
+            fontSize="medium"
           />
           <VideoCallIcon
             className="create__video__icon"

@@ -1,28 +1,24 @@
 @import "../../App.scss";
 .top-bar-container {
+  height: 3.25rem;
   background-color: $black-primary;
   width: 100vw;
-  height: 10vh;
-
+  display: flex;
+  align-items: center;
   .top-bar-top {
     background-color: $black-primary;
     overflow-x: hidden;
-    padding: 1rem 0;
     width: 100%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: $border-color 1px solid;
     .top-l {
-      position: absolute;
-      left: 1rem;
-      display: flex;
-      align-items: center;
       .logo-container {
-        height: 5.5rem;
+        height: 5vh;
         .logo {
+          height: 2.5rem;
+          width: 7.25rem;
           cursor: pointer;
-          height: 5.5rem;
         }
       }
       .menu__icon {

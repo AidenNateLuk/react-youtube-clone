@@ -14,25 +14,29 @@ const App: React.FC = () => {
     setNotificationState((prevState) => !prevState);
   };
   return (
-    <div className="app__container">
+    <>
       <TopBar
         updateSidebarWidth={updateSidebarWidth}
         sidebarWidth={sidebarWidth}
         updateNotificationState={updateNotificationState}
         notificationState={notificationState}
       />
-      <div
-        className={
-          sidebarWidth < 175 ? "side__bar__toggle" : "side__bar__toggle active"
-        }
-        onClick={updateSidebarWidth}
-      ></div>
-      <div className="app__main">
-        <SideBar sidebarWidth={sidebarWidth} />
+      <div className="app__container">
+        <div
+          className={
+            sidebarWidth < 175
+              ? "side__bar__toggle"
+              : "side__bar__toggle active"
+          }
+          onClick={updateSidebarWidth}
+        ></div>
         <Selectionbar updateSidebarWidth={updateSidebarWidth} />
-        <HomePage />
+        <SideBar sidebarWidth={sidebarWidth} />
+        <div className="app__main">
+          <HomePage />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default App;

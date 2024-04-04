@@ -1,18 +1,19 @@
 @import "../../App.scss";
 .top-bar-bottom {
+  padding: 1.5rem 0.5rem;
   height: 5vh;
   width: 100vw;
   display: flex;
-  padding: 0 0.5rem;
   align-items: center;
   border-bottom: $border-color 1px solid;
   gap: 0.5rem;
   overflow-x: scroll;
+  overflow-y: hidden;
   .bottom__nav__icon__container {
     cursor: pointer;
     padding: 0.25rem 0;
-    border-radius: 5px;
-    border: 1px white solid;
+    border-radius: 0.2rem;
+    background-color: hsla(0, 0%, 50%, 0.436);
     width: 2.5rem;
     display: flex;
     align-items: center;
