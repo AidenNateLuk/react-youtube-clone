@@ -3,7 +3,6 @@ import "./styles.scss";
 import LogoDark from "../../../assets/LogoDark.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import Searchbar from "../Searchbar";
-import ExploreIcon from "@mui/icons-material/Explore";
 import MenuIcon from "@mui/icons-material/Menu";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
@@ -65,18 +64,6 @@ const TopBar: React.FC<TopBarProps> = ({
             />
           )}
           <div className="profile-icon"></div>
-        </div>
-      </div>
-      <div className={"top-bar-bottom "}>
-        <div className="bottom__nav__icon__container">
-          <ExploreIcon
-            className="explore__icon"
-            onClick={() => updateSidebarWidth()}
-            style={{ color: "white" }}
-          />
-        </div>
-        <div className="bottom__nav__item__container">
-          <p>All</p>
         </div>
       </div>
     </div>

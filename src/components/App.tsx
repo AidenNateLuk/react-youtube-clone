@@ -2,6 +2,7 @@ import { HomePage } from "./Homepage";
 import TopBar from "./navigation/TopBar";
 import SideBar from "./navigation/Sidebar";
 import { useState } from "react";
+import Selectionbar from "./navigation/Selectionbar";
 import "./App.scss";
 const App: React.FC = () => {
   const [sidebarWidth, setSidebarWidth] = useState(75);
@@ -28,10 +29,8 @@ const App: React.FC = () => {
       ></div>
       <div className="app__main">
         <SideBar sidebarWidth={sidebarWidth} />
-        <HomePage
-          updateSidebarWidth={updateSidebarWidth}
-          sidebarWidth={sidebarWidth}
-        />
+        <Selectionbar updateSidebarWidth={updateSidebarWidth} />
+        <HomePage />
       </div>
     </div>
   );
