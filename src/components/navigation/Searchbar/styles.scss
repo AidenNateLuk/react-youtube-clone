@@ -14,6 +14,7 @@
     border-radius: 50%;
   }
   .search__bar {
+    border: $border-color 1px solid;
     color: white;
     width: 70%;
     height: 80%;
@@ -40,12 +41,16 @@
     ::placeholder {
       color: white;
     }
+    .search__bar__input.active::placeholder {
+      display: none;
+    }
     .search__icon__container {
       width: 20%;
       height: 100%;
-
+      background-color: hsla(0, 0%, 28%, 0.751);
       border-radius: 0 15px 15px 0;
       display: flex;
+      cursor: pointer;
       .search__bar__icon {
         margin: auto;
       }

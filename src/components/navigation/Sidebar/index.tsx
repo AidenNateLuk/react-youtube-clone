@@ -15,6 +15,7 @@ const SideBar: React.FC<SideBarProps> = ({ sidebarWidth }) => {
           <div className="sidebar__content">
             <div className="sidebar__path">
               <a href="">
+                {" "}
                 <HomeIcon className="sidebar__icon" />
                 Home
               </a>
