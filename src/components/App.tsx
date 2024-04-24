@@ -15,13 +15,13 @@ const App: React.FC = () => {
   };
   return (
     <>
-      <TopBar
-        updateSidebarWidth={updateSidebarWidth}
-        sidebarWidth={sidebarWidth}
-        updateNotificationState={updateNotificationState}
-        notificationState={notificationState}
-      />
       <div className="app__container">
+        <TopBar
+          updateSidebarWidth={updateSidebarWidth}
+          sidebarWidth={sidebarWidth}
+          updateNotificationState={updateNotificationState}
+          notificationState={notificationState}
+        />
         <div
           className={
             sidebarWidth < 175

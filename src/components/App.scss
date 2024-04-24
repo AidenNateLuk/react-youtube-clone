@@ -27,6 +27,7 @@ $breakpoint-small: 520px;
   background-color: $black-primary;
   display: grid;
   grid-template-columns: 1fr;
+  box-sizing: border-box;
   .app__main {
     box-sizing: border-box;
     max-width: 100vw;

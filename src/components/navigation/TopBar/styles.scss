@@ -3,18 +3,15 @@
   height: 3.25rem;
   background-color: $black-primary;
   width: 100vw;
-  display: flex;
-  align-items: center;
-
   .top-bar-top {
     background-color: $black-primary;
-    overflow-x: hidden;
-    overflow-y: hidden;
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-bottom: $border-color 1px solid;
     .top-l {
+      width: 20%;
       .logo-container {
         height: 5vh;
         .logo {
@@ -35,8 +32,7 @@
       }
     }
     .top-r {
-      position: absolute;
-      right: 1rem;
+      padding: 0 1rem;
       display: flex;
       gap: 1rem;
       .create__video__icon {
