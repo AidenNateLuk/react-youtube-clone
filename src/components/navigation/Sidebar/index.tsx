@@ -1,9 +1,11 @@
 import "./styles.scss";
-import SlideshowIcon from "@mui/icons-material/Slideshow";
-import HomeIcon from "@mui/icons-material/Home";
-import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
-import PermIdentityIcon from "@mui/icons-material/PermIdentity";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import LogoDark from "../../../assets/LogoDark.svg";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import FeedIcon from "@mui/icons-material/Feed";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import PodcastsIcon from "@mui/icons-material/Podcasts";
 interface SideBarProps {
   sidebarWidth: number;
 }
@@ -16,26 +18,33 @@ const SideBar: React.FC<SideBarProps> = ({ sidebarWidth }) => {
             <div className="sidebar__path">
               <a href="">
                 {" "}
-                <HomeIcon className="sidebar__icon" />
-                Home
+                <WhatshotIcon className="sidebar__icon" />
+                Trending
               </a>
             </div>
             <div className="sidebar__path">
               <a href="">
-                <SlideshowIcon className="sidebar__icon" />
-                Shorts
+                <MusicNoteIcon className="sidebar__icon" />
+                Music
               </a>
             </div>
             <div className="sidebar__path">
               <a href="">
-                <SubscriptionsIcon className="sidebar__icon" />
-                Subscriptions
+                <SportsEsportsIcon className="sidebar__icon" />
+                Gaming
               </a>
             </div>
             <div className="sidebar__path">
               <a href="">
-                <PermIdentityIcon className="sidebar__icon" />
-                You
+                <FeedIcon className="sidebar__icon" />
+                News
+              </a>
+            </div>
+            <div className="sidebar__path">
+              <a href="">
+                {" "}
+                <EmojiEventsIcon className="sidebar__icon" />
+                Sports
               </a>
             </div>
           </div>
@@ -43,56 +52,45 @@ const SideBar: React.FC<SideBarProps> = ({ sidebarWidth }) => {
       ) : (
         <div className={sidebarWidth > 75 ? "sidebar open" : "sidebar closed"}>
           <div className="sidebar__content">
-            <div className="nav__section">
-              <div className="sidebar__path">
-                <a href="">
-                  <HomeIcon className="sidebar__icon" />
-                  Home
-                </a>
-              </div>
-              <div className="sidebar__path">
-                <a href="">
-                  <SlideshowIcon className="sidebar__icon" />
-                  Shorts
-                </a>
-              </div>
-              <div className="sidebar__path">
-                <a href="">
-                  <SubscriptionsIcon className="sidebar__icon" />
-                  Subscriptions
-                </a>
-              </div>
+            <img className="logo" src={LogoDark} alt="Logo" />
+            <div className="sidebar__path">
+              <a href="">
+                {" "}
+                <WhatshotIcon className="sidebar__icon" />
+                Trending
+              </a>
             </div>
-            <div className="user__section">
-              <div className="user__title">
-                <h3>You</h3>
-                <KeyboardArrowRightIcon className="sidebar__icon" />
-              </div>
-              <div className="sidebar__path">
-                <a href="">Your channel</a>
-              </div>
-              <div className="sidebar__path">
-                <a href="">History</a>
-              </div>
-              <div className="sidebar__path">
-                <a href="">Your videos</a>
-              </div>
-              <div className="sidebar__path">
-                <a href="">Watch later</a>
-              </div>
-              <div className="sidebar__path">
-                <a href="">Liked videos</a>
-              </div>
+            <div className="sidebar__path">
+              <a href="">
+                <MusicNoteIcon className="sidebar__icon" />
+                Music
+              </a>
             </div>
-            <div className="subs__section">
-              <div className="subscribed__channel">
-                <div className="channel__photo">
-                  <img />
-                </div>
-                <div className="channel__name">
-                  <p>Test Channel</p>
-                </div>
-              </div>
+            <div className="sidebar__path">
+              <a href="">
+                <SportsEsportsIcon className="sidebar__icon" />
+                Gaming
+              </a>
+            </div>
+            <div className="sidebar__path">
+              <a href="">
+                <FeedIcon className="sidebar__icon" />
+                News
+              </a>
+            </div>
+            <div className="sidebar__path">
+              <a href="">
+                {" "}
+                <EmojiEventsIcon className="sidebar__icon" />
+                Sports
+              </a>
+            </div>
+            <div className="sidebar__path">
+              <a href="">
+                {" "}
+                <PodcastsIcon className="sidebar__icon" />
+                Podcasts
+              </a>
             </div>
           </div>
         </div>

@@ -1,31 +1,28 @@
 @import "../../App.scss";
 .sidebar {
-  background-color: white;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 100vh;
   overflow-y: scroll;
   .sidebar__content {
     display: flex;
     flex-direction: column;
-    .user__section {
-      .user__title {
-        color: white;
-        display: flex;
-        align-items: center;
-      }
+    padding: 0 0.75rem;
+    .logo {
+      height: 2.5rem;
+      width: 7.25rem;
+      cursor: pointer;
+      padding-top: 0.5rem;
     }
   }
   .sidebar__path {
+    padding: 0 0.75rem;
     .sidebar__icon {
       color: white;
     }
     a {
       cursor: pointer;
       text-decoration: none;
-      color: $text-color;
+      color: white;
+      font-weight: 500;
       border-radius: 8px;
     }
   }
@@ -47,12 +44,11 @@
   .sidebar__content {
     .sidebar__path {
       border-radius: 8px;
-
       a {
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 12px;
+
         display: flex;
         padding: 1rem 0;
         .sidebar__icon {
@@ -63,7 +59,7 @@
   }
 }
 .sidebar.open {
-  background-color: $black-primary;
+  background-color: $dark-gray;
   width: 175px;
   .sidebar__content {
     gap: 1rem;
@@ -71,7 +67,6 @@
       border-radius: 5px;
       width: 100%;
       a {
-        font-size: 12px;
         display: flex;
         align-items: center;
         justify-content: start;

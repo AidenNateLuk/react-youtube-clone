@@ -6,9 +6,11 @@ import Selectionbar from "./navigation/Selectionbar";
 import "./App.scss";
 const App: React.FC = () => {
   const [sidebarWidth, setSidebarWidth] = useState(75);
+
   const updateSidebarWidth = () => {
     setSidebarWidth((prevWidth) => (prevWidth == 75 ? 175 : 75));
   };
+
   const [notificationState, setNotificationState] = useState(false);
   const updateNotificationState = () => {
     setNotificationState((prevState) => !prevState);
