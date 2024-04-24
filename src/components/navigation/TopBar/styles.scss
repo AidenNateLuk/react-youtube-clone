@@ -3,7 +3,7 @@
   height: 3.25rem;
   background-color: $black-primary;
   width: 100vw;
-  padding-top: 0.25rem;
+
   .top-bar-top {
     background-color: $black-primary;
     width: 100%;
@@ -16,6 +16,7 @@
       .logo-container {
         height: 5vh;
         .logo {
+          padding-top: 0.25rem;
           height: 2.5rem;
           width: 7.25rem;
           cursor: pointer;
