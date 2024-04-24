@@ -9,7 +9,7 @@ export const HomePage: React.FC = () => {
           <div className="profile__picture"></div>
           <div className="video__description__text">
             <h2>Punching a crap ton of babies to death</h2>
-            <p>it was glorious</p>
+            <p>Markiplier · 128K views · 5 months ago</p>
           </div>
           <MoreVertIcon style={{ color: "white" }} />
         </div>
