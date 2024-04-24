@@ -14,9 +14,9 @@ const Selectionbar: React.FC<SelectorProps> = ({ updateSidebarWidth }) => {
           style={{ color: "white" }}
         />
       </div>
-      <div className="bottom__nav__item__container">
+      <button className="bottom__nav__item__container">
         <p>All</p>
-      </div>
+      </button>
     </div>
   );
 };

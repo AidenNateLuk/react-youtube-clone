@@ -1,17 +1,19 @@
 @import "../../App.scss";
 .top-bar-bottom {
-  padding: 1.5rem 0.5rem;
+  padding: 0 0.5rem;
   height: 5vh;
   width: 100vw;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   border-bottom: $border-color 1px solid;
-  gap: 0.5rem;
+  gap: 1rem;
   overflow-x: scroll;
   overflow-y: hidden;
   .bottom__nav__icon__container {
     cursor: pointer;
     padding: 0.25rem 0;
+    margin: 0 0.45rem;
     border-radius: 0.2rem;
     background-color: hsla(0, 0%, 50%, 0.436);
     width: 2.5rem;
@@ -20,15 +22,19 @@
     justify-content: center;
   }
   .bottom__nav__item__container {
+    background-color: transparent;
     cursor: pointer;
     color: white;
-    padding: 0.4rem 0;
+    padding: 0.5rem;
     border-radius: 8px;
     border: 1px white solid;
-    width: 2.5rem;
+    width: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  :active {
+    background-color: white;
   }
 }
 .top-bar-bottom::-webkit-scrollbar {
