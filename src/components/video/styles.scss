@@ -1,0 +1,45 @@
+@import "../App.scss";
+.vid__container {
+  width: 100vw;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .video {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0.5rem;
+    .thumbnail {
+      width: 100%;
+    }
+  }
+  .video__description {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .video__description__text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      h2 {
+        line-height: 1.5;
+        font-weight: 500;
+        font-size: 15px;
+        color: white;
+      }
+      p {
+        color: $text-color;
+        font-size: 12px;
+      }
+    }
+    .profile__picture {
+      height: 2.5rem;
+      width: 2.5rem;
+      border: $border-color 1px solid;
+      border-radius: 50%;
+      background-image: url("../../assets/unnamed.jpg");
+      background-position: center;
+      background-size: contain;
+    }
+  }
+}

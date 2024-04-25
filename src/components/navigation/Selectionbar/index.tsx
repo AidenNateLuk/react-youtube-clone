@@ -5,6 +5,13 @@ interface SelectorProps {
   updateSidebarWidth: () => void;
 }
 const Selectionbar: React.FC<SelectorProps> = ({ updateSidebarWidth }) => {
+  const dummyArraySorters = [
+    { id: 1, subject: "All" },
+    { id: 2, subject: "Gaming" },
+    { id: 3, subject: "React" },
+    { id: 4, subject: "History" },
+  ];
+
   return (
     <div className={"top-bar-bottom "}>
       <div className="bottom__nav__icon__container">
@@ -14,9 +21,11 @@ const Selectionbar: React.FC<SelectorProps> = ({ updateSidebarWidth }) => {
           style={{ color: "white" }}
         />
       </div>
-      <button className="bottom__nav__item__container">
-        <p>All</p>
-      </button>
+      {dummyArraySorters.map((arrSort) => (
+        <button className="bottom__nav__item__container">
+          <p key={arrSort.id}>{arrSort.subject}</p>
+        </button>
+      ))}
     </div>
   );
 };
