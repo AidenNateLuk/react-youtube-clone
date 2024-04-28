@@ -1,9 +1,7 @@
 @import "../App.scss";
 .homepage__container {
-  overflow-y: scroll;
   height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  scroll-behavior: smooth;
 }

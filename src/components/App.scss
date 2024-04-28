@@ -40,6 +40,7 @@ $breakpoint-small: 520px;
 @media (max-width: 768px) {
   .app__container {
     padding: 0;
+    overflow-y: scroll;
   }
   .side__bar__toggle {
     height: 100vh;

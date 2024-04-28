@@ -1,6 +1,7 @@
 import { HomePage } from "./Homepage";
 import TopBar from "./navigation/TopBar";
 import SideBar from "./navigation/Sidebar";
+import { BottomBar } from "./navigation/BottomBar";
 import { useState } from "react";
 import "./App.scss";
 const App: React.FC = () => {
@@ -37,6 +38,7 @@ const App: React.FC = () => {
           <HomePage updateSidebarWidth={updateSidebarWidth} />
         </div>
       </div>
+      <BottomBar />
     </>
   );
 };
