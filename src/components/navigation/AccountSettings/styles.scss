@@ -1,0 +1,68 @@
+@import "../../App.scss";
+.settings__container {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background-color: $black-primary;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 1rem;
+  padding: 1rem;
+  .top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    font-size: 18px;
+  }
+  .settings__path {
+    padding: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .section.first {
+    .account {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      .profile-icon {
+        background-color: orange;
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+      }
+      .account__details {
+        .account__readmore {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 0.25rem;
+        }
+        a {
+          text-decoration: none;
+          color: rgb(137, 210, 234);
+        }
+      }
+    }
+  }
+  .policies {
+    position: absolute;
+    bottom: 5px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}

@@ -11,17 +11,20 @@ interface TopBarProps {
   sidebarWidth: number;
   updateSidebarWidth: () => void;
   updateNotificationState: () => void;
+  handleSettings: () => void;
   notificationState: boolean;
 }
 const TopBar: React.FC<TopBarProps> = ({
   updateSidebarWidth,
   notificationState,
   updateNotificationState,
+  handleSettings,
 }) => {
   const [isSearching, setIsSearching] = useState(false);
   const handleSearch = () => {
     setIsSearching(!isSearching);
   };
+
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
@@ -64,7 +67,7 @@ const TopBar: React.FC<TopBarProps> = ({
               onClick={() => updateNotificationState()}
             />
           )}
-          <div className="profile-icon"></div>
+          <div className="profile-icon" onClick={() => handleSettings()}></div>
         </div>
       </div>
     </div>

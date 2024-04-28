@@ -4,6 +4,7 @@
   position: absolute;
   z-index: 5;
   bottom: 0;
+  border-top: 1px solid $border-color;
   .bottom__bar__content {
     display: flex;
     flex-direction: row;

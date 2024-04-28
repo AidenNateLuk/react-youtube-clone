@@ -3,6 +3,7 @@ import TopBar from "./navigation/TopBar";
 import SideBar from "./navigation/Sidebar";
 import { BottomBar } from "./navigation/BottomBar";
 import { useState } from "react";
+import { AccountSettings } from "./navigation/AccountSettings";
 import "./App.scss";
 const App: React.FC = () => {
   const [sidebarWidth, setSidebarWidth] = useState(75);
@@ -15,14 +16,21 @@ const App: React.FC = () => {
   const updateNotificationState = () => {
     setNotificationState((prevState) => !prevState);
   };
+
+  const [settingState, setSettingState] = useState(false);
+  const handleSettings = () => {
+    setSettingState((prevState) => !prevState);
+  };
   return (
     <>
+      {settingState && <AccountSettings handleSettings={handleSettings} />}
       <div className="app__container">
         <TopBar
           updateSidebarWidth={updateSidebarWidth}
           sidebarWidth={sidebarWidth}
           updateNotificationState={updateNotificationState}
           notificationState={notificationState}
+          handleSettings={handleSettings}
         />
         <div
           className={
