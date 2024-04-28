@@ -28,6 +28,7 @@ $breakpoint-small: 520px;
   display: grid;
   grid-template-columns: 1fr;
   box-sizing: border-box;
+  overflow-y: scroll;
   .app__main {
     box-sizing: border-box;
     max-width: 100vw;
@@ -40,7 +41,6 @@ $breakpoint-small: 520px;
 @media (max-width: 768px) {
   .app__container {
     padding: 0;
-    overflow-y: scroll;
   }
   .side__bar__toggle {
     height: 100vh;
