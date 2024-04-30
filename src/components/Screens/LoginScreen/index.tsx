@@ -9,6 +9,9 @@ export const LoginScreen: React.FC = () => {
         <button className="login__button">
           Login With <span>Google</span>
         </button>
+        <button className="continue__as__guest">
+          Continue as a <span>Guest</span>
+        </button>
         <p className="api__attribution">
           This Project is made using Youtube DATA API
         </p>

@@ -26,6 +26,13 @@
         color: #4285f4;
       }
     }
+    .continue__as__guest {
+      background: $light-gray;
+      padding: 1rem 2.25rem;
+      border-radius: 8px;
+      border: 1px transparent solid;
+      color: $darkish-gray;
+    }
     .api__attribution {
       color: white;
     }
