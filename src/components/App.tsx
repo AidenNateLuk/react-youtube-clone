@@ -5,6 +5,12 @@ import { BottomBar } from "./navigation/BottomBar";
 import { ReactElement, useState } from "react";
 import { AccountSettings } from "./navigation/AccountSettings";
 import { LoginScreen } from "./Screens/LoginScreen";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.scss";
 
 interface LayoutProps {
@@ -28,7 +34,7 @@ const Layout: React.FC<LayoutProps> = ({
     setSettingState((prevState) => !prevState);
   };
   return (
-    <>
+    <div className="app__container">
       {settingState && <AccountSettings handleSettings={handleSettings} />}
       <TopBar
         updateSidebarWidth={updateSidebarWidth}
@@ -47,33 +53,37 @@ const Layout: React.FC<LayoutProps> = ({
       <SideBar sidebarWidth={sidebarWidth} />
       <div className="app__main">{children}</div>
       <BottomBar />
-    </>
+    </div>
   );
 };
 const App: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const handleLogin = () => {
-    setIsLoggedIn((prevState) => !prevState);
-  };
   const [sidebarWidth, setSidebarWidth] = useState(75);
   const updateSidebarWidth = () => {
     setSidebarWidth((prevWidth) => (prevWidth == 75 ? 175 : 75));
   };
   return (
-    <>
-      <div className="app__container">
-        {isLoggedIn ? (
-          <Layout
-            sidebarWidth={sidebarWidth}
-            updateSidebarWidth={updateSidebarWidth}
-          >
-            <HomePage updateSidebarWidth={updateSidebarWidth} />
-          </Layout>
-        ) : (
-          <LoginScreen handleLogin={handleLogin} />
-        )}
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout
+              sidebarWidth={sidebarWidth}
+              updateSidebarWidth={updateSidebarWidth}
+            >
+              <Routes>
+                <Route
+                  path="/"
+                  element={<HomePage updateSidebarWidth={updateSidebarWidth} />}
+                />
+              </Routes>
+            </Layout>
+          }
+        />
+        <Route path="/Login" element={<LoginScreen />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
   );
 };
 export default App;
