@@ -1,0 +1,33 @@
+@import "../../App.scss";
+.login {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  .login__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+    background-color: $very-dark-gray;
+    height: 80%;
+    img {
+      height: 130px;
+      object-fit: contain;
+    }
+    .login__button {
+      background: $darkish-gray;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      border: 1px transparent solid;
+      color: $light-gray;
+      span {
+        color: #4285f4;
+      }
+    }
+    .api__attribution {
+      color: white;
+    }
+  }
+}

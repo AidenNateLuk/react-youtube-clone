@@ -1,5 +1,7 @@
-import Video from "../video";
-import Selectionbar from "../navigation/Selectionbar";
+import React from "react";
+import Video from "../../video";
+import Selectionbar from "../../navigation/Selectionbar";
+import "./styles.scss";
 interface HomepageProps {
   updateSidebarWidth: () => void;
 }
