@@ -20,7 +20,9 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-redux": "^9.1.1",
     "react-router-dom": "^6.23.0",
-    "redux": "^5.0.1"
+    "redux": "^5.0.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
