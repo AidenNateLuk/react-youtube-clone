@@ -65,7 +65,7 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route
-          path="/"
+          path="/Home/*"
           element={
             <Layout
               sidebarWidth={sidebarWidth}
@@ -73,14 +73,14 @@ const App: React.FC = () => {
             >
               <Routes>
                 <Route
-                  path="/"
+                  index
                   element={<HomePage updateSidebarWidth={updateSidebarWidth} />}
                 />
               </Routes>
             </Layout>
           }
         />
-        <Route path="/Login" element={<LoginScreen />} />
+        <Route path="/" element={<LoginScreen />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
