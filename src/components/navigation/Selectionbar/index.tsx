@@ -1,29 +1,40 @@
 import React from "react";
 import ExploreIcon from "@mui/icons-material/Explore";
 import "./styles.scss";
+
 interface SelectorProps {
   updateSidebarWidth: () => void;
+  selectedSorters: { id: number; subject: string; selected: boolean }[];
+  handleSorterClick: (index: number) => void;
 }
-const Selectionbar: React.FC<SelectorProps> = ({ updateSidebarWidth }) => {
-  const dummyArraySorters = [
-    { id: 1, subject: "All" },
-    { id: 2, subject: "Gaming" },
-    { id: 3, subject: "React" },
-    { id: 4, subject: "History" },
-  ];
 
+const Selectionbar: React.FC<SelectorProps> = ({
+  updateSidebarWidth,
+  selectedSorters,
+  handleSorterClick,
+}) => {
   return (
     <div className={"top-bar-bottom "}>
       <div className="bottom__nav__icon__container">
         <ExploreIcon
           className="explore__icon"
-          onClick={() => updateSidebarWidth()}
+          onClick={updateSidebarWidth}
           style={{ color: "white" }}
         />
       </div>
-      {dummyArraySorters.map((arrSort) => (
-        <button className="bottom__nav__item__container">
-          <p key={arrSort.id}>{arrSort.subject}</p>
+      {selectedSorters.map((arrSort, index) => (
+        <button
+          onClick={() => handleSorterClick(index)}
+          key={arrSort.id}
+          className="bottom__nav__item__container"
+          style={{
+            backgroundColor: arrSort.selected
+              ? "white"
+              : "hsla(0, 0%, 50%, 0.436)",
+            color: arrSort.selected ? "black" : "white",
+          }}
+        >
+          <p>{arrSort.subject}</p>
         </button>
       ))}
     </div>

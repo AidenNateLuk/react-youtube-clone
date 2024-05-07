@@ -6,9 +6,12 @@ import Thumbnail from "../../assets/images.jpeg";
 interface VideoProps {
   title: string;
   url: string;
+  views: string;
+  channelName: string;
+  tags: string[];
 }
 
-const Video: React.FC<VideoProps> = ({ title }) => {
+const Video: React.FC<VideoProps> = ({ title, views, channelName }) => {
   return (
     <div className="vid__container">
       <div className="video">
@@ -18,7 +21,9 @@ const Video: React.FC<VideoProps> = ({ title }) => {
         <div className="profile__picture"></div>
         <div className="video__description__text">
           <h2>{title}</h2>
-          <p>Markiplier · 128K views · 5 months ago</p>
+          <p>
+            {channelName} · {views} views · 5 months ago
+          </p>
         </div>
         <MoreVertIcon style={{ color: "white" }} />
       </div>
