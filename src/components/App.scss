@@ -21,7 +21,6 @@ $breakpoint-small: 520px;
   background-color: $black-primary;
 }
 .app__container {
-  height: 100vh;
   max-width: 100vw;
   overflow: hidden;
   background-color: $black-primary;
@@ -29,7 +28,7 @@ $breakpoint-small: 520px;
   grid-template-columns: 1fr;
   box-sizing: border-box;
   overflow-y: scroll;
-  behavior: smooth;
+  scroll-behavior: smooth;
   .app__main {
     box-sizing: border-box;
     max-width: 100vw;

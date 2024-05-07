@@ -1,7 +1,7 @@
 @import "../../App.scss";
 .bottom__bar__container {
   align-items: center;
-  position: absolute;
+  position: fixed;
   z-index: 5;
   bottom: 0;
   border-top: 1px solid $border-color;
