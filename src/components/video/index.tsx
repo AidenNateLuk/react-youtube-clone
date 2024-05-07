@@ -2,6 +2,7 @@ import React from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import "./styles.scss";
 import Thumbnail from "../../assets/images.jpeg";
+import ProfilePic from "../../assets/unnamed.jpg";
 
 interface VideoProps {
   title: string;
@@ -18,7 +19,9 @@ const Video: React.FC<VideoProps> = ({ title, views, channelName }) => {
         <img className="thumbnail" src={Thumbnail} alt="Thumbnail" />
       </div>
       <div className="video__description">
-        <div className="profile__picture"></div>
+        <div className="profile__picture">
+          <img src={ProfilePic} alt="" />
+        </div>
         <div className="video__description__text">
           <h2>{title}</h2>
           <p>

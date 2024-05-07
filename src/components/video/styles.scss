@@ -1,13 +1,11 @@
 @import "../App.scss";
 .vid__container {
-  width: 100vw;
-  height: 30%;
+  height: 16.5rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   .video {
-    width: 100%;
-    height: 100%;
+    box-sizing: border-box;
     margin-bottom: 0.5rem;
     .thumbnail {
       width: 100%;
@@ -37,9 +35,12 @@
       width: 2.5rem;
       border: $border-color 1px solid;
       border-radius: 50%;
-      background-image: url("../../assets/unnamed.jpg");
-      background-position: center;
-      background-size: contain;
+      box-sizing: border-box;
+      img {
+        border: none;
+        height: 100%;
+        border-radius: 50%;
+      }
     }
   }
 }
