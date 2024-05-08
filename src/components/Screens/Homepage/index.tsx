@@ -23,6 +23,21 @@ interface SorterItem {
 }
 
 export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const [selectedSorters, setSelectedSorters] = useState<SorterItem[]>([
     { id: 1, subject: "All", selected: true },
     { id: 2, subject: "Gaming", selected: false },
@@ -96,25 +111,70 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
     setSelectedSorters(updatedSorters);
   };
 
-  return (
-    <div className="homepage__container">
-      <Selectionbar
-        selectedSorters={selectedSorters}
-        handleSorterClick={handleSorterClick}
-        updateSidebarWidth={updateSidebarWidth}
-      />
-      <div className="video__container">
-        {filteredVideos.map((video) => (
-          <Video
-            key={video.id}
-            title={video.title}
-            url={video.url}
-            views={video.views}
-            channelName={video.channelName}
-            tags={video.tags}
-          />
-        ))}
+  const MobileLayout: React.FC = () => {
+    return (
+      <div className="homepage__container">
+        <Selectionbar
+          selectedSorters={selectedSorters}
+          handleSorterClick={handleSorterClick}
+          updateSidebarWidth={updateSidebarWidth}
+        />
+        <div className="video__container">
+          {filteredVideos.map((video) => (
+            <Video
+              isSmallScreen={isSmallScreen}
+              key={video.id}
+              title={video.title}
+              url={video.url}
+              views={video.views}
+              channelName={video.channelName}
+              tags={video.tags}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
+
+  const DesktopLayout = () => {
+    return (
+      <div className="homepage__container">
+        <Selectionbar
+          selectedSorters={selectedSorters}
+          handleSorterClick={handleSorterClick}
+          updateSidebarWidth={updateSidebarWidth}
+        />
+        <div className="feed">
+          <div className="video__row first">
+            {filteredVideos.slice(0, 3).map((video) => (
+              <Video
+                key={video.id}
+                title={video.title}
+                url={video.url}
+                views={video.views}
+                channelName={video.channelName}
+                tags={video.tags}
+                isSmallScreen={isSmallScreen}
+              />
+            ))}
+          </div>
+          <div className="video__row">
+            {filteredVideos.slice(0, 4).map((video) => (
+              <Video
+                key={video.id}
+                title={video.title}
+                url={video.url}
+                views={video.views}
+                channelName={video.channelName}
+                tags={video.tags}
+                isSmallScreen={isSmallScreen}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return <>{isSmallScreen ? <MobileLayout /> : <DesktopLayout />}</>;
 };

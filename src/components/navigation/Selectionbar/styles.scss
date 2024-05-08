@@ -40,6 +40,8 @@
 }
 @media (min-width: 768px) {
   .top-bar-bottom {
+    position: fixed;
+    background-color: $black-primary;
     border-bottom: none;
     .bottom__nav__icon__container {
       display: none;
