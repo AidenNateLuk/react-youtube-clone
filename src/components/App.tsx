@@ -29,6 +29,10 @@ const Layout: React.FC<LayoutProps> = ({
     setNotificationState((prevState) => !prevState);
   };
 
+  const [isSearching, setIsSearching] = useState(false);
+  const handleSearch = () => {
+    setIsSearching((prevstate) => !prevstate);
+  };
   const [settingState, setSettingState] = useState(false);
   const handleSettings = () => {
     setSettingState((prevState) => !prevState);
@@ -42,6 +46,8 @@ const Layout: React.FC<LayoutProps> = ({
         updateNotificationState={updateNotificationState}
         notificationState={notificationState}
         handleSettings={handleSettings}
+        handleSearch={handleSearch}
+        isSearching={isSearching}
       />
       <div
         className={
@@ -49,7 +55,11 @@ const Layout: React.FC<LayoutProps> = ({
         }
         onClick={updateSidebarWidth}
       ></div>
-
+      <div
+        className={
+          !isSearching ? "search__bar__toggle" : "search__bar__toggle active"
+        }
+      ></div>
       <SideBar sidebarWidth={sidebarWidth} />
       <div className="app__main">{children}</div>
       <BottomBar />

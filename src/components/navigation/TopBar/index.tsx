@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./styles.scss";
 import LogoDark from "../../../assets/LogoDark.svg";
 import SearchIcon from "@mui/icons-material/Search";
@@ -13,18 +12,17 @@ interface TopBarProps {
   updateNotificationState: () => void;
   handleSettings: () => void;
   notificationState: boolean;
+  handleSearch: () => void;
+  isSearching: boolean;
 }
 const TopBar: React.FC<TopBarProps> = ({
   updateSidebarWidth,
   notificationState,
   updateNotificationState,
   handleSettings,
+  handleSearch,
+  isSearching,
 }) => {
-  const [isSearching, setIsSearching] = useState(false);
-  const handleSearch = () => {
-    setIsSearching(!isSearching);
-  };
-
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
@@ -38,11 +36,7 @@ const TopBar: React.FC<TopBarProps> = ({
             <img className="logo" src={LogoDark} alt="Logo" />
           </div>
         </div>
-        <Searchbar
-          className="search__component"
-          isSearching={isSearching}
-          handleSearch={handleSearch}
-        />
+        <Searchbar isSearching={isSearching} handleSearch={handleSearch} />
         <div className="top-r">
           <SearchIcon
             className="search__icon"
