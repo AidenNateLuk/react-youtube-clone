@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { DesktopLayoutOne, DesktopLayoutTwo } from "./LayOuts/Desktop";
+import { DesktopLayoutOne } from "./LayOuts/Desktop";
 import MobileLayout from "./LayOuts/mobile";
 import "./styles.scss";
 
@@ -24,19 +24,12 @@ interface SorterItem {
 
 export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
-  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
+
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth <= 768) {
         setIsSmallScreen(true);
-        setIsLargeScreen(false);
-      } else if (screenWidth >= 1800) {
-        setIsSmallScreen(false);
-        setIsLargeScreen(true);
-      } else {
-        setIsSmallScreen(false);
-        setIsLargeScreen(false);
       }
     };
 
@@ -133,14 +126,6 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
     <>
       {isSmallScreen ? (
         <MobileLayout
-          selectedSorters={selectedSorters}
-          handleSorterClick={handleSorterClick}
-          updateSidebarWidth={updateSidebarWidth}
-          filteredVideos={filteredVideos}
-          isSmallScreen={isSmallScreen}
-        />
-      ) : isLargeScreen ? (
-        <DesktopLayoutTwo
           selectedSorters={selectedSorters}
           handleSorterClick={handleSorterClick}
           updateSidebarWidth={updateSidebarWidth}

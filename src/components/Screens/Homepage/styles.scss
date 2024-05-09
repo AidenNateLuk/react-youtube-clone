@@ -15,7 +15,7 @@
   .homepage__container {
     min-height: 100vh;
     margin-left: 6rem;
-    margin-top: 2.85rem;
+    margin-top: 5rem;
     .feed {
       margin-top: 5.5rem;
       box-sizing: border-box;
@@ -24,8 +24,16 @@
       gap: 4rem;
       .video__row {
         display: grid;
-        grid-template-columns: 19rem 19rem 19rem 19rem 19rem;
-        gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+    }
+  }
+}
+@media (min-width: 1800px) {
+  .homepage__container {
+    .feed {
+      .video__row {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
       }
     }
   }

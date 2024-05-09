@@ -39,21 +39,8 @@ export const DesktopLayoutOne: React.FC<DesktopProps> = ({
         updateSidebarWidth={updateSidebarWidth}
       />
       <div className="feed">
-        <div className="video__row first">
-          {filteredVideos.slice(0, 3).map((video) => (
-            <Video
-              key={video.id}
-              title={video.title}
-              url={video.url}
-              views={video.views}
-              channelName={video.channelName}
-              tags={video.tags}
-              isSmallScreen={isSmallScreen}
-            />
-          ))}
-        </div>
         <div className="video__row">
-          {filteredVideos.slice(0, 4).map((video) => (
+          {filteredVideos.slice(0, 5).map((video) => (
             <Video
               key={video.id}
               title={video.title}

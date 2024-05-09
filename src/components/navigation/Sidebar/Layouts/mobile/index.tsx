@@ -1,4 +1,4 @@
-import LogoDark from "../../../assets/LogoDark.svg";
+import LogoDark from "../../../../../assets/LogoDark.svg";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";

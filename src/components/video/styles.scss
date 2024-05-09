@@ -47,14 +47,12 @@
 
 @media (min-width: 768px) {
   .vid__container {
-    width: 350px;
+    width: 335px;
     height: 250px;
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
     .video {
-      width: 317px;
-      height: 178px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       .thumbnail {
         border-radius: 15px;
         width: 317px;
