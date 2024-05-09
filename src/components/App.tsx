@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { LoginScreen } from "./Screens/LoginScreen";
 import { Layout } from "./Layout/layout";
+import { VideoScreen } from "./Screens/VideoScreen";
 import {
   BrowserRouter as Router,
   Routes,
@@ -37,6 +38,19 @@ const App: React.FC = () => {
                   index
                   element={<HomePage updateSidebarWidth={updateSidebarWidth} />}
                 />
+              </Routes>
+            </Layout>
+          }
+        />
+        <Route
+          path="/Watch/*"
+          element={
+            <Layout
+              sidebarWidth={sidebarWidth}
+              updateSidebarWidth={updateSidebarWidth}
+            >
+              <Routes>
+                <Route element={<VideoScreen />} />
               </Routes>
             </Layout>
           }
