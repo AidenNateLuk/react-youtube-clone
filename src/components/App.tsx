@@ -1,10 +1,8 @@
 import { HomePage } from "./Screens/Homepage";
-import TopBar from "./navigation/TopBar";
-import SideBar from "./navigation/Sidebar";
-import { BottomBar } from "./navigation/BottomBar";
-import { ReactElement, useState } from "react";
-import { AccountSettings } from "./navigation/AccountSettings";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store/store";
 import { LoginScreen } from "./Screens/LoginScreen";
+import { Layout } from "./Layout/layout";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,65 +10,18 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.scss";
+import { toggleSidebarWidth } from "../store/app/SidebarManagement/sidebarwidthSlice";
 
-interface LayoutProps {
-  children: ReactElement;
-  updateSidebarWidth: () => void;
-  sidebarWidth: number;
-}
-
-const Layout: React.FC<LayoutProps> = ({
-  children,
-  updateSidebarWidth,
-  sidebarWidth,
-}) => {
-  const [notificationState, setNotificationState] = useState(false);
-  const updateNotificationState = () => {
-    setNotificationState((prevState) => !prevState);
-  };
-
-  const [isSearching, setIsSearching] = useState(false);
-  const handleSearch = () => {
-    setIsSearching((prevstate) => !prevstate);
-  };
-  const [settingState, setSettingState] = useState(false);
-  const handleSettings = () => {
-    setSettingState((prevState) => !prevState);
-  };
-  return (
-    <div className="app__container">
-      {settingState && <AccountSettings handleSettings={handleSettings} />}
-      <TopBar
-        updateSidebarWidth={updateSidebarWidth}
-        sidebarWidth={sidebarWidth}
-        updateNotificationState={updateNotificationState}
-        notificationState={notificationState}
-        handleSettings={handleSettings}
-        handleSearch={handleSearch}
-        isSearching={isSearching}
-      />
-      <div
-        className={
-          sidebarWidth < 175 ? "side__bar__toggle" : "side__bar__toggle active"
-        }
-        onClick={updateSidebarWidth}
-      ></div>
-      <div
-        className={
-          !isSearching ? "search__bar__toggle" : "search__bar__toggle active"
-        }
-      ></div>
-      <SideBar sidebarWidth={sidebarWidth} />
-      <div className="app__main">{children}</div>
-      <BottomBar />
-    </div>
-  );
-};
 const App: React.FC = () => {
-  const [sidebarWidth, setSidebarWidth] = useState(75);
+  const sidebarWidth = useSelector(
+    (state: RootState) => state.sidebar.sidebarWidth
+  );
+
+  const dispatch = useDispatch();
   const updateSidebarWidth = () => {
-    setSidebarWidth((prevWidth) => (prevWidth == 75 ? 175 : 75));
+    dispatch(toggleSidebarWidth());
   };
+
   return (
     <Router>
       <Routes>
