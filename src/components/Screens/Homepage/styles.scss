@@ -24,19 +24,8 @@
       gap: 4rem;
       .video__row {
         display: grid;
-        grid-template-columns: 19rem 19rem 19rem 19rem;
+        grid-template-columns: 19rem 19rem 19rem 19rem 19rem;
         gap: 2rem;
-      }
-    }
-  }
-}
-
-@media (min-width: 1700px) {
-  .homepage__container {
-    .feed {
-      width: 100vw;
-      .video__row {
-        grid-template-columns: 22rem 22rem 22rem 22rem;
       }
     }
   }

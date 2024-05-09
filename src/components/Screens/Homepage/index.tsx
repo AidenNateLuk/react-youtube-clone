@@ -24,10 +24,20 @@ interface SorterItem {
 
 export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
-
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 768);
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 768) {
+        setIsSmallScreen(true);
+        setIsLargeScreen(false);
+      } else if (screenWidth >= 1800) {
+        setIsSmallScreen(false);
+        setIsLargeScreen(true);
+      } else {
+        setIsSmallScreen(false);
+        setIsLargeScreen(false);
+      }
     };
 
     handleResize();
@@ -76,6 +86,14 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
         title: "Minecraft Ep. 2",
         channelName: "PewDiePie",
         views: "800k",
+        url: "dummy_video_3.mp4",
+        tags: ["Gaming", "All"],
+      },
+      {
+        id: 5,
+        title: "Minecraft SkyFactory",
+        channelName: "Ssundee",
+        views: "1mil",
         url: "dummy_video_3.mp4",
         tags: ["Gaming", "All"],
       },
@@ -136,7 +154,7 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
     );
   };
 
-  const DesktopLayout = () => {
+  const DesktopLayoutOne = () => {
     return (
       <div className="homepage__container">
         <Selectionbar
@@ -176,5 +194,55 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
     );
   };
 
-  return <>{isSmallScreen ? <MobileLayout /> : <DesktopLayout />}</>;
+  const DesktopLayoutTwo = () => {
+    return (
+      <div className="homepage__container">
+        <Selectionbar
+          selectedSorters={selectedSorters}
+          handleSorterClick={handleSorterClick}
+          updateSidebarWidth={updateSidebarWidth}
+        />
+        <div className="feed">
+          <div className="video__row first">
+            {filteredVideos.slice(0, 4).map((video) => (
+              <Video
+                key={video.id}
+                title={video.title}
+                url={video.url}
+                views={video.views}
+                channelName={video.channelName}
+                tags={video.tags}
+                isSmallScreen={isSmallScreen}
+              />
+            ))}
+          </div>
+          <div className="video__row">
+            {filteredVideos.slice(0, 5).map((video) => (
+              <Video
+                key={video.id}
+                title={video.title}
+                url={video.url}
+                views={video.views}
+                channelName={video.channelName}
+                tags={video.tags}
+                isSmallScreen={isSmallScreen}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <>
+      {isSmallScreen ? (
+        <MobileLayout />
+      ) : isLargeScreen ? (
+        <DesktopLayoutTwo />
+      ) : (
+        <DesktopLayoutOne />
+      )}
+    </>
+  );
 };
