@@ -50,20 +50,21 @@
     width: 350px;
     height: 250px;
     display: flex;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     .video {
       width: 317px;
       height: 178px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
       .thumbnail {
         border-radius: 15px;
+        width: 317px;
+        height: 190px;
       }
     }
     .video__description {
       align-items: flex-start;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
       .video__description__title {
         display: flex;
         flex-direction: row;

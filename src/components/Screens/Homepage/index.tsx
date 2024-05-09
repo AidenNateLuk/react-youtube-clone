@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import Video from "../../video";
-import Selectionbar from "../../navigation/Selectionbar";
+import { DesktopLayoutOne, DesktopLayoutTwo } from "./LayOuts/Desktop";
+import MobileLayout from "./LayOuts/mobile";
 import "./styles.scss";
 
 interface HomepageProps {
@@ -129,119 +129,32 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
     setSelectedSorters(updatedSorters);
   };
 
-  const MobileLayout: React.FC = () => {
-    return (
-      <div className="homepage__container">
-        <Selectionbar
-          selectedSorters={selectedSorters}
-          handleSorterClick={handleSorterClick}
-          updateSidebarWidth={updateSidebarWidth}
-        />
-        <div className="video__container">
-          {filteredVideos.map((video) => (
-            <Video
-              isSmallScreen={isSmallScreen}
-              key={video.id}
-              title={video.title}
-              url={video.url}
-              views={video.views}
-              channelName={video.channelName}
-              tags={video.tags}
-            />
-          ))}
-        </div>
-      </div>
-    );
-  };
-
-  const DesktopLayoutOne = () => {
-    return (
-      <div className="homepage__container">
-        <Selectionbar
-          selectedSorters={selectedSorters}
-          handleSorterClick={handleSorterClick}
-          updateSidebarWidth={updateSidebarWidth}
-        />
-        <div className="feed">
-          <div className="video__row first">
-            {filteredVideos.slice(0, 3).map((video) => (
-              <Video
-                key={video.id}
-                title={video.title}
-                url={video.url}
-                views={video.views}
-                channelName={video.channelName}
-                tags={video.tags}
-                isSmallScreen={isSmallScreen}
-              />
-            ))}
-          </div>
-          <div className="video__row">
-            {filteredVideos.slice(0, 4).map((video) => (
-              <Video
-                key={video.id}
-                title={video.title}
-                url={video.url}
-                views={video.views}
-                channelName={video.channelName}
-                tags={video.tags}
-                isSmallScreen={isSmallScreen}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const DesktopLayoutTwo = () => {
-    return (
-      <div className="homepage__container">
-        <Selectionbar
-          selectedSorters={selectedSorters}
-          handleSorterClick={handleSorterClick}
-          updateSidebarWidth={updateSidebarWidth}
-        />
-        <div className="feed">
-          <div className="video__row first">
-            {filteredVideos.slice(0, 4).map((video) => (
-              <Video
-                key={video.id}
-                title={video.title}
-                url={video.url}
-                views={video.views}
-                channelName={video.channelName}
-                tags={video.tags}
-                isSmallScreen={isSmallScreen}
-              />
-            ))}
-          </div>
-          <div className="video__row">
-            {filteredVideos.slice(0, 5).map((video) => (
-              <Video
-                key={video.id}
-                title={video.title}
-                url={video.url}
-                views={video.views}
-                channelName={video.channelName}
-                tags={video.tags}
-                isSmallScreen={isSmallScreen}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <>
       {isSmallScreen ? (
-        <MobileLayout />
+        <MobileLayout
+          selectedSorters={selectedSorters}
+          handleSorterClick={handleSorterClick}
+          updateSidebarWidth={updateSidebarWidth}
+          filteredVideos={filteredVideos}
+          isSmallScreen={isSmallScreen}
+        />
       ) : isLargeScreen ? (
-        <DesktopLayoutTwo />
+        <DesktopLayoutTwo
+          selectedSorters={selectedSorters}
+          handleSorterClick={handleSorterClick}
+          updateSidebarWidth={updateSidebarWidth}
+          filteredVideos={filteredVideos}
+          isSmallScreen={isSmallScreen}
+        />
       ) : (
-        <DesktopLayoutOne />
+        <DesktopLayoutOne
+          selectedSorters={selectedSorters}
+          handleSorterClick={handleSorterClick}
+          updateSidebarWidth={updateSidebarWidth}
+          filteredVideos={filteredVideos}
+          isSmallScreen={isSmallScreen}
+        />
       )}
     </>
   );
