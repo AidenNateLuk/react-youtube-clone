@@ -4,7 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-// import SettingsModal from "../../SettingsModal";
+import SettingsModal from "./SettingsModal";
 import "./styles.scss";
 import { useState } from "react";
 interface TopBarProps {
@@ -72,7 +72,9 @@ const DesktopLayout: React.FC<TopBarProps> = ({
       </div>
       {isOpen && (
         <div className="modal">
-          <div className="modal-content">{/* <SettingsModal /> */}</div>
+          <div className="modal-content">
+            <SettingsModal />
+          </div>
         </div>
       )}
     </div>

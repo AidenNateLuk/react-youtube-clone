@@ -31,15 +31,15 @@
   .modal {
     color: white;
     position: fixed;
-    right: 6rem;
-    top: 5rem;
+    right: 1rem;
+    top: 2.75rem;
     z-index: 20;
-    background-color: $darkish-gray;
+    background-color: $black-primary;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 1rem;
   }
 }
 @media (min-width: 768px) {
