@@ -1,0 +1,80 @@
+@import "../../../../App.scss";
+.top-bar-container {
+  .top-bar-top {
+    .top__middle {
+      height: 5vh;
+      position: absolute;
+      top: 0.25rem;
+      display: flex;
+      align-items: center;
+      .desktop__searchbar {
+        height: 2.5rem;
+        padding: 0 12.5rem;
+        border-radius: 16px 0 0 16px;
+        border: $border-color 1px solid;
+        background-color: $black-primary;
+      }
+      .icon__container {
+        height: 2.5rem;
+        width: 5rem;
+        border: $border-color 1px solid;
+        background-color: $darkish-gray;
+        border-radius: 0 16px 16px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+@media (min-width: 768px) {
+  .top-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    .top-bar-top {
+      margin-top: 1rem;
+      width: 100vw;
+      display: flex;
+      justify-content: space-evenly;
+      height: 5vh;
+      border-bottom: none;
+
+      .top-l {
+        position: absolute;
+        top: 0.25rem;
+        left: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .menu__icon {
+          display: block;
+          margin: 0.5rem;
+        }
+        .logo-container {
+          display: flex;
+          align-items: center;
+        }
+      }
+      .top-r {
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        display: flex;
+        align-items: center;
+        .notifications__icon {
+          display: block;
+          cursor: pointer;
+        }
+        .create__video__icon {
+          cursor: pointer;
+          display: block;
+        }
+        .search__icon {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -45,7 +45,28 @@ const DesktopLayout: React.FC<SideBarProps> = ({ sidebarWidth }) => {
       ) : (
         <div className={sidebarWidth > 75 ? "sidebar open" : "sidebar closed"}>
           <div className="sidebar__content">
-            <div className="section first">
+            <div className="section second">
+              {" "}
+              <div className="sidebar__path">
+                <a href="">
+                  <HomeOutlinedIcon className="sidebar__icon" />
+                  Home
+                </a>
+              </div>
+              <div className="sidebar__path">
+                <a href="">
+                  <SubscriptionsOutlinedIcon className="sidebar__icon" />
+                  Subscriptions
+                </a>
+              </div>
+              <div className="sidebar__path">
+                <a href="">
+                  <Person2TwoToneIcon className="sidebar__icon" />
+                  You
+                </a>
+              </div>
+            </div>
+            <div className="section second">
               <div className="sidebar__path">
                 <a href="">
                   <HomeOutlinedIcon className="sidebar__icon" />

@@ -4,6 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import "./styles.scss";
 interface TopBarProps {
   sidebarWidth: number;
   updateSidebarWidth: () => void;
@@ -31,13 +32,17 @@ const DesktopLayout: React.FC<TopBarProps> = ({
             <img className="logo" src={LogoDark} alt="Logo" />
           </div>
         </div>
-        <input className="desktop__searchbar" type="text" />
+        <div className="top__middle">
+          <input className="desktop__searchbar" type="text" />
+          <div className="icon__container">
+            <SearchIcon
+              className="search__icon"
+              style={{ color: "white", fontFamily: "Roboto" }}
+              fontSize="medium"
+            />
+          </div>
+        </div>
         <div className="top-r">
-          <SearchIcon
-            className="search__icon"
-            style={{ color: "white", fontFamily: "Roboto" }}
-            fontSize="medium"
-          />
           <VideoCallIcon
             className="create__video__icon"
             style={{ color: "white" }}

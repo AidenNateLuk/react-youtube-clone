@@ -3,6 +3,8 @@
 .sidebar.open {
   background-color: $black-primary;
   z-index: 120;
+  font-size: 15px;
+  font-weight: 200;
   .sidebar__content {
     color: white;
     .section {
@@ -18,5 +20,8 @@
         justify-content: space-between;
       }
     }
+  }
+  .sidebar__content :last-child {
+    border-bottom: none;
   }
 }
