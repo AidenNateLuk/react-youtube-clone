@@ -1,5 +1,7 @@
 @import "../../../../App.scss";
 .top-bar-container {
+  display: flex;
+  flex-direction: column;
   .top-bar-top {
     .top__middle {
       height: 5vh;
@@ -26,6 +28,19 @@
       }
     }
   }
+  .modal {
+    color: white;
+    position: fixed;
+    right: 6rem;
+    top: 5rem;
+    z-index: 20;
+    background-color: $darkish-gray;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
 }
 @media (min-width: 768px) {
   .top-bar-container {
@@ -33,6 +48,7 @@
     align-items: center;
     justify-content: space-around;
     position: fixed;
+    z-index: 5;
     .top-bar-top {
       margin-top: 1rem;
       width: 100vw;

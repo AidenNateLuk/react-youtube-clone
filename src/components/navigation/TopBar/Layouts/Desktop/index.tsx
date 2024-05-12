@@ -5,6 +5,7 @@ import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import "./styles.scss";
+import { useState } from "react";
 interface TopBarProps {
   sidebarWidth: number;
   updateSidebarWidth: () => void;
@@ -17,8 +18,13 @@ const DesktopLayout: React.FC<TopBarProps> = ({
   updateSidebarWidth,
   notificationState,
   updateNotificationState,
-  handleSettings,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Function to toggle the modal state
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
@@ -60,9 +66,17 @@ const DesktopLayout: React.FC<TopBarProps> = ({
               onClick={() => updateNotificationState()}
             />
           )}
-          <div className="profile-icon" onClick={() => handleSettings()}></div>
+          <div className="profile-icon" onClick={toggleModal}></div>
         </div>
       </div>
+      {isOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Modal Title</h2>
+            <p>This is the modal content.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

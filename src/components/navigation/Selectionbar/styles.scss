@@ -43,9 +43,10 @@
   .top-bar-bottom {
     top: 3.9rem;
     left: 5.5rem;
-    position: fixed;
+    position: absolute;
     background-color: $black-primary;
     border-bottom: none;
+    z-index: 2;
     .bottom__nav__icon__container {
       display: none;
       .explore__icon {
