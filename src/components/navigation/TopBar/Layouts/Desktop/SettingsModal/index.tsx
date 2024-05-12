@@ -4,6 +4,11 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
+import ModeNightTwoToneIcon from "@mui/icons-material/ModeNightTwoTone";
+import TranslateTwoToneIcon from "@mui/icons-material/TranslateTwoTone";
+import LanguageTwoToneIcon from "@mui/icons-material/LanguageTwoTone";
+import ShieldTwoToneIcon from "@mui/icons-material/ShieldTwoTone";
+import KeyboardTwoToneIcon from "@mui/icons-material/KeyboardTwoTone";
 import "./styles.scss";
 
 const SettingsModal = () => {
@@ -49,23 +54,23 @@ const SettingsModal = () => {
           <p>Your data in YouTube</p>
         </div>
         <div className="settings__path">
-          <SwitchAccountOutlinedIcon />
+          <ModeNightTwoToneIcon />
           <p>Appearance: </p>
         </div>
         <div className="settings__path">
-          <SwitchAccountOutlinedIcon />
+          <TranslateTwoToneIcon />
           <p>Language: English</p>
         </div>
         <div className="settings__path">
-          <SwitchAccountOutlinedIcon />
+          <ShieldTwoToneIcon />
           <p>Restricted Mode: Off</p>
         </div>
         <div className="settings__path">
-          <SwitchAccountOutlinedIcon />
+          <LanguageTwoToneIcon />
           <p>Location: Israel</p>
         </div>
         <div className="settings__path">
-          <SwitchAccountOutlinedIcon />
+          <KeyboardTwoToneIcon />
           <p>Keyboard shortcuts</p>
         </div>
       </div>
