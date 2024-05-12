@@ -1,11 +1,11 @@
 import "./styles.scss";
-import LogoDark from "../../../assets/LogoDark.svg";
-import SearchIcon from "@mui/icons-material/Search";
-import Searchbar from "../Searchbar";
-import MenuIcon from "@mui/icons-material/Menu";
-import VideoCallIcon from "@mui/icons-material/VideoCall";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../../store/store";
+import { useCallback, useEffect } from "react";
+import { changeLayout } from "../../../store/app/LayoutManagement/layoutslice";
+import MobileLayout from "./Layouts/Mobile";
+import DesktopLayout from "./Layouts/Desktop";
+
 interface TopBarProps {
   sidebarWidth: number;
   updateSidebarWidth: () => void;
@@ -15,56 +15,57 @@ interface TopBarProps {
   handleSearch: () => void;
   isSearching: boolean;
 }
+
 const TopBar: React.FC<TopBarProps> = ({
+  sidebarWidth,
   updateSidebarWidth,
-  notificationState,
   updateNotificationState,
   handleSettings,
+  notificationState,
   handleSearch,
   isSearching,
 }) => {
+  const layoutHandler = useSelector((state: RootState) => state.layout);
+  const dispatch = useDispatch();
+
+  const handleResize = useCallback(() => {
+    const screenWidth = window.innerWidth;
+    dispatch(changeLayout(screenWidth <= 768));
+  }, [dispatch]);
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [dispatch, handleResize]);
+
+  const isSmallScreen = layoutHandler.isSmallScreen;
+
   return (
-    <div className="top-bar-container">
-      <div className="top-bar-top">
-        <div className="top-l">
-          <MenuIcon
-            className="menu__icon"
-            onClick={() => updateSidebarWidth()}
-            style={{ color: "white" }}
-          />
-          <div className="logo-container">
-            <img className="logo" src={LogoDark} alt="Logo" />
-          </div>
-        </div>
-        <Searchbar isSearching={isSearching} handleSearch={handleSearch} />
-        <div className="top-r">
-          <SearchIcon
-            className="search__icon"
-            onClick={() => handleSearch()}
-            style={{ color: "white", fontFamily: "Roboto" }}
-            fontSize="medium"
-          />
-          <VideoCallIcon
-            className="create__video__icon"
-            style={{ color: "white" }}
-          />
-          {!notificationState ? (
-            <NotificationsNoneIcon
-              style={{ color: "white" }}
-              className="notifications__icon"
-              onClick={() => updateNotificationState()}
-            />
-          ) : (
-            <NotificationsIcon
-              style={{ color: "white" }}
-              className="notifications__icon"
-              onClick={() => updateNotificationState()}
-            />
-          )}
-          <div className="profile-icon" onClick={() => handleSettings()}></div>
-        </div>
-      </div>
-    </div>
+    <>
+      {isSmallScreen ? (
+        <MobileLayout
+          isSearching={isSearching}
+          handleSearch={handleSearch}
+          notificationState={notificationState}
+          handleSettings={handleSettings}
+          sidebarWidth={sidebarWidth}
+          updateSidebarWidth={updateSidebarWidth}
+          updateNotificationState={updateNotificationState}
+        />
+      ) : (
+        <DesktopLayout
+          isSearching={isSearching}
+          notificationState={notificationState}
+          handleSettings={handleSettings}
+          sidebarWidth={sidebarWidth}
+          updateSidebarWidth={updateSidebarWidth}
+          updateNotificationState={updateNotificationState}
+        />
+      )}
+    </>
   );
 };
 

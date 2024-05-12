@@ -16,7 +16,6 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
   const layoutHandler = useSelector((state: RootState) => state.layout);
   const dispatch = useDispatch();
   const [selectedSorters, setSelectedSorters] = useState(dummyArraySorters);
-
   const handleResize = useCallback(() => {
     const screenWidth = window.innerWidth;
     dispatch(changeLayout(screenWidth <= 768));

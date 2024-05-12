@@ -108,9 +108,15 @@
   .sidebar {
     display: flex;
     position: fixed;
+    font-size: 12px;
     top: 4.2rem;
     .logo {
       display: none;
+    }
+  }
+  .sidebar.open {
+    a {
+      font-weight: 400;
     }
   }
 }
