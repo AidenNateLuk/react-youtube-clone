@@ -21,26 +21,31 @@ const DesktopLayout: React.FC<TopBarProps> = ({
   updateNotificationState,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [input, setInput] = useState("");
   // Function to toggle the modal state
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
+
   return (
-    <div className="top-bar-container">
-      <div className="top-bar-top">
+    <>
+      <div className="top-bar-container">
         <div className="top-l">
-          <MenuIcon
-            className="menu__icon"
-            onClick={() => updateSidebarWidth()}
-            style={{ color: "white" }}
-          />
+          <button className="menu__icon" onClick={() => updateSidebarWidth()}>
+            <MenuIcon style={{ color: "white" }} />
+          </button>
           <div className="logo-container">
             <img className="logo" src={LogoDark} alt="Logo" />
           </div>
         </div>
         <div className="top__middle">
-          <input className="desktop__searchbar" type="text" />
+          <input
+            className="desktop__searchbar"
+            type="text"
+            placeholder="Search"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
           <div className="icon__container">
             <SearchIcon
               className="search__icon"
@@ -50,23 +55,19 @@ const DesktopLayout: React.FC<TopBarProps> = ({
           </div>
         </div>
         <div className="top-r">
-          <VideoCallIcon
-            className="create__video__icon"
-            style={{ color: "white" }}
-          />
-          {!notificationState ? (
-            <NotificationsNoneIcon
-              style={{ color: "white" }}
-              className="notifications__icon"
-              onClick={() => updateNotificationState()}
-            />
-          ) : (
-            <NotificationsIcon
-              style={{ color: "white" }}
-              className="notifications__icon"
-              onClick={() => updateNotificationState()}
-            />
-          )}
+          <button className="create__video__icon">
+            <VideoCallIcon style={{ color: "white" }} />
+          </button>
+          <button
+            className="notifications__icon"
+            onClick={() => updateNotificationState()}
+          >
+            {!notificationState ? (
+              <NotificationsNoneIcon style={{ color: "white" }} />
+            ) : (
+              <NotificationsIcon style={{ color: "white" }} />
+            )}
+          </button>
           <div className="profile-icon" onClick={toggleModal}></div>
         </div>
       </div>
@@ -77,7 +78,7 @@ const DesktopLayout: React.FC<TopBarProps> = ({
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

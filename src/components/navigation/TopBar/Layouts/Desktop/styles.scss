@@ -1,20 +1,46 @@
 @import "../../../../App.scss";
-.top-bar-container {
-  display: flex;
-  flex-direction: column;
-  .top-bar-top {
+
+@media (min-width: 768px) {
+  .top-bar-container {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    margin-bottom: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+    .top-l {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+      flex-shrink: 0;
+      .menu__icon {
+        display: block;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+    }
     .top__middle {
       height: 5vh;
+      width: 30rem;
       position: absolute;
       top: 0.25rem;
       display: flex;
       align-items: center;
       .desktop__searchbar {
+        color: white;
+        padding-left: 1rem;
         height: 2.5rem;
-        padding: 0 12.5rem;
+        width: 100%;
         border-radius: 16px 0 0 16px;
         border: $border-color 1px solid;
         background-color: $black-primary;
+        &:focus {
+          outline: none;
+        }
       }
       .icon__container {
         height: 2.5rem;
@@ -27,68 +53,40 @@
         justify-content: center;
       }
     }
-  }
-  .modal {
-    color: white;
-    position: fixed;
-    right: 1rem;
-    top: 2.75rem;
-    z-index: 20;
-    background-color: $black-primary;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-  }
-}
-@media (min-width: 768px) {
-  .top-bar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: fixed;
-    z-index: 5;
-    .top-bar-top {
-      margin-top: 1rem;
-      width: 100vw;
+    .top-r {
+      position: absolute;
+      top: 1rem;
+      right: 0;
       display: flex;
-      justify-content: space-evenly;
-      height: 5vh;
-      border-bottom: none;
-      .top-l {
-        position: absolute;
-        top: 0.25rem;
-        left: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        .menu__icon {
-          display: block;
-        }
-        .logo-container {
-          display: flex;
-          align-items: center;
-        }
+      align-items: center;
+      .notifications__icon {
+        display: block;
+        cursor: pointer;
+        border: 1px transparent solid;
+        background-color: transparent;
       }
-      .top-r {
-        position: absolute;
-        top: 1rem;
-        right: 0;
-        display: flex;
-        align-items: center;
-        .notifications__icon {
-          display: block;
-          cursor: pointer;
-        }
-        .create__video__icon {
-          cursor: pointer;
-          display: block;
-        }
-        .search__icon {
-          display: none;
-        }
+      .create__video__icon {
+        background-color: transparent;
+        border: 1px transparent solid;
+        cursor: pointer;
+        display: block;
+      }
+      .search__icon {
+        display: none;
       }
     }
   }
+}
+.modal {
+  color: white;
+  position: fixed;
+  right: 1rem;
+  top: 2.75rem;
+  z-index: 20;
+  background-color: $black-primary;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }

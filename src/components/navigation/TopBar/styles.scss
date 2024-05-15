@@ -26,6 +26,8 @@
         width: 1.75rem;
         cursor: pointer;
         display: none;
+        background-color: transparent;
+        border: 1px solid transparent;
       }
       .menu__icon:hover {
         background-color: rgba(255, 255, 255, 0.24);

@@ -17,24 +17,9 @@
     margin-left: 6rem;
     margin-top: 5rem;
     .feed {
-      margin-top: 5.5rem;
-      box-sizing: border-box;
       display: grid;
-      grid-template-rows: auto auto;
-      gap: 4rem;
-      .video__row {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-      }
-    }
-  }
-}
-@media (min-width: 1800px) {
-  .homepage__container {
-    .feed {
-      .video__row {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      }
+      gap: 0.4rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
   }
 }
