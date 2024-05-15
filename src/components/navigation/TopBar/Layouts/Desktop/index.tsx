@@ -5,6 +5,9 @@ import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsModal from "./SettingsModal";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { dummyVideos } from "../../../../../DummyData/dummyvideos";
 import "./styles.scss";
 import { useState } from "react";
 interface TopBarProps {
@@ -21,7 +24,7 @@ const DesktopLayout: React.FC<TopBarProps> = ({
   updateNotificationState,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [input, setInput] = useState("");
+
   // Function to toggle the modal state
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -39,13 +42,23 @@ const DesktopLayout: React.FC<TopBarProps> = ({
           </div>
         </div>
         <div className="top__middle">
-          <input
+          <Autocomplete
             className="desktop__searchbar"
-            type="text"
-            placeholder="Search"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
+            freeSolo
+            disableClearable
+            options={dummyVideos.map((video) => video.title)}
+            renderInput={(video) => (
+              <TextField
+                {...video}
+                InputProps={{
+                  ...video.InputProps,
+                  type: "search",
+                  className: "blinking-input",
+                }}
+              />
+            )}
           />
+
           <div className="icon__container">
             <SearchIcon
               className="search__icon"

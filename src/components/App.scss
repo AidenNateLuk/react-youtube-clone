@@ -20,6 +20,19 @@ $breakpoint-small: 520px;
 #root {
   background-color: $black-primary;
 }
+.MuiAutocomplete-listbox {
+  background-color: $black-primary;
+}
+.MuiAutocomplete-option.Mui-focused {
+  background-color: transparent !important;
+}
+.MuiAutocomplete-option {
+  background-color: transparent;
+  color: white;
+  &:hover {
+    background-color: $darkish-gray !important;
+  }
+}
 
 body::-webkit-scrollbar {
   width: 8px; /* Width of the scrollbar */

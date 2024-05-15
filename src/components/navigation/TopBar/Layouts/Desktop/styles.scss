@@ -11,40 +11,51 @@
     margin-left: 4px;
     margin-right: 4px;
     .top-l {
+      margin-left: 1.5rem;
       display: flex;
       gap: 0.25rem;
       align-items: center;
       flex-shrink: 0;
       .menu__icon {
         display: block;
+        background-color: transparent;
+        border: none;
       }
       .logo-container {
         display: flex;
         align-items: center;
+        height: 7vh;
+        .logo {
+          height: 100%;
+        }
       }
     }
     .top__middle {
       height: 5vh;
-      width: 30rem;
-      position: absolute;
-      top: 0.25rem;
+      width: 35rem;
       display: flex;
       align-items: center;
       .desktop__searchbar {
+        display: flex;
+        align-items: center;
+        height: 100%;
         color: white;
-        padding-left: 1rem;
+
         height: 2.5rem;
         width: 100%;
         border-radius: 16px 0 0 16px;
         border: $border-color 1px solid;
         background-color: $black-primary;
-        &:focus {
-          outline: none;
+        input {
+          color: white !important;
+        }
+        fieldset {
+          border: none; // Remove the border
         }
       }
       .icon__container {
         height: 2.5rem;
-        width: 5rem;
+        width: 3.5rem;
         border: $border-color 1px solid;
         background-color: $darkish-gray;
         border-radius: 0 16px 16px 0;
@@ -54,11 +65,10 @@
       }
     }
     .top-r {
-      position: absolute;
-      top: 1rem;
-      right: 0;
       display: flex;
-      align-items: center;
+      flex-shrink: 0;
+      gap: 1rem;
+      margin-right: 1.5rem;
       .notifications__icon {
         display: block;
         cursor: pointer;
@@ -73,6 +83,13 @@
       }
       .search__icon {
         display: none;
+      }
+      .profile-icon {
+        margin-right: 1.5rem;
+        background-color: orange;
+        height: 25px;
+        width: 25px;
+        border-radius: 100%;
       }
     }
   }
