@@ -56,8 +56,11 @@ export const Layout: React.FC<LayoutProps> = ({
           !isSearching ? "search__bar__toggle" : "search__bar__toggle active"
         }
       ></div>
-      <SideBar sidebarWidth={sidebarWidth} />
-      <div className="app__main">{children}</div>
+
+      <div className="app__main">
+        <SideBar sidebarWidth={sidebarWidth} />
+        {children}
+      </div>
       <BottomBar />
     </div>
   );

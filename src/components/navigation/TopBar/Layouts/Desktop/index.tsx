@@ -53,7 +53,6 @@ const DesktopLayout: React.FC<TopBarProps> = ({
                 InputProps={{
                   ...video.InputProps,
                   type: "search",
-                  className: "blinking-input",
                 }}
               />
             )}
