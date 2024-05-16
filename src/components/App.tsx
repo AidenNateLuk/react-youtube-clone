@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import "./App.scss";
 import { toggleSidebarWidth } from "../store/app/SidebarManagement/sidebarwidthSlice";
+import ResultsScreen from "./Screens/ResultsScreen";
 
 const App: React.FC = () => {
   const sidebarWidth = useSelector(
@@ -42,6 +43,20 @@ const App: React.FC = () => {
             </Layout>
           }
         />
+        <Route
+          path="/results/*"
+          element={
+            <Layout
+              sidebarWidth={sidebarWidth}
+              updateSidebarWidth={updateSidebarWidth}
+            >
+              <Routes>
+                <Route index element={<ResultsScreen />} />
+              </Routes>
+            </Layout>
+          }
+        />
+
         <Route
           path="/Watch/*"
           element={

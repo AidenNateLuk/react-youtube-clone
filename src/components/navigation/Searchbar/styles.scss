@@ -31,43 +31,50 @@
       margin: auto;
     }
     .search__bar {
-      border: $border-color 1px solid;
-      background-color: $darkish-gray;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 20px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      .search__bar__input {
-        font-weight: 400;
-        font-size: 15px;
-        background-color: $darkish-gray;
-        cursor: pointer;
+      form {
         border: $border-color 1px solid;
+        background-color: $darkish-gray;
         color: white;
-        padding: 0.4rem 0.75rem 0.3rem 0.75rem;
-        border-radius: 15px;
-        width: 14rem;
-        border: none;
-        outline: none;
-        caret-color: transparent;
-        animation: blink-animation 10s infinite step-start;
-      }
-      ::placeholder {
-        color: $text-color;
-        font-weight: 400;
-      }
-      .search__bar__input.active::placeholder {
-        display: none;
-      }
-      .search__icon__container {
-        padding: 0 0.5rem;
-        border-radius: 0 15px 15px 0;
+        border-radius: 20px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         display: flex;
-        cursor: pointer;
-        .search__bar__icon {
-          margin: auto;
+        align-items: center;
+        justify-content: space-between;
+        .search__bar__input {
+          font-weight: 400;
+          font-size: 15px;
+          background-color: $darkish-gray;
+          cursor: pointer;
+          border: $border-color 1px solid;
+          color: white;
+          padding: 0.4rem 0.75rem 0.3rem 0.75rem;
+          border-radius: 15px;
+          width: 14rem;
+          border: none;
+          outline: none;
+          caret-color: transparent;
+          animation: blink-animation 10s infinite step-start;
+        }
+        ::placeholder {
+          color: $text-color;
+          font-weight: 400;
+        }
+        .search__bar__input.active::placeholder {
+          display: none;
+        }
+        button {
+          padding: 0 0.5rem;
+          border-radius: 0 15px 15px 0;
+          display: flex;
+          cursor: pointer;
+          background: transparent;
+          border: transparent 1px solid;
+          color: white;
+          .search__icon__container {
+            .search__bar__icon {
+              margin: auto;
+            }
+          }
         }
       }
     }

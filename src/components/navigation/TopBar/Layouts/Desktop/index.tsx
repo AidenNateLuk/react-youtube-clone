@@ -10,6 +10,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { dummyVideos } from "../../../../../DummyData/dummyvideos";
 import "./styles.scss";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 interface TopBarProps {
   sidebarWidth: number;
   updateSidebarWidth: () => void;
@@ -29,7 +30,7 @@ const DesktopLayout: React.FC<TopBarProps> = ({
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
-
+  const navigate = useNavigate();
   return (
     <>
       <div className="top-bar-container">
@@ -37,7 +38,12 @@ const DesktopLayout: React.FC<TopBarProps> = ({
           <button className="menu__icon" onClick={() => updateSidebarWidth()}>
             <MenuIcon style={{ color: "white" }} />
           </button>
-          <div className="logo-container">
+          <div
+            className="logo-container"
+            onClick={() => {
+              navigate("/Home");
+            }}
+          >
             <img className="logo" src={LogoDark} alt="Logo" />
           </div>
         </div>

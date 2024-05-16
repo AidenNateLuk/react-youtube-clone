@@ -5,6 +5,8 @@ import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Searchbar from "../../../Searchbar";
+import { useNavigate } from "react-router-dom";
+
 interface TopBarProps {
   sidebarWidth: number;
   updateSidebarWidth: () => void;
@@ -23,6 +25,7 @@ const MobileLayout: React.FC<TopBarProps> = ({
   handleSearch,
   isSearching,
 }) => {
+  const navigate = useNavigate();
   return (
     <div className="top-bar-container">
       <div className="top-bar-top">
@@ -32,7 +35,12 @@ const MobileLayout: React.FC<TopBarProps> = ({
             onClick={() => updateSidebarWidth()}
             style={{ color: "white" }}
           />
-          <div className="logo-container">
+          <div
+            className="logo-container"
+            onClick={() => {
+              navigate("/Home");
+            }}
+          >
             <img className="logo" src={LogoDark} alt="Logo" />
           </div>
           <Searchbar isSearching={isSearching} handleSearch={handleSearch} />
