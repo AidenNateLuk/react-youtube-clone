@@ -39,12 +39,8 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
     );
   }, [selectedSorters]);
 
-  useEffect(() => {
-    console.log("Filtered videos:", filteredVideos);
-  }, [filteredVideos]);
-
   const handleSorterClick = (index: number) => {
-    const updatedSorters = selectedSorters.map((sorter, i) => ({
+    const updatedSorters = dummyArraySorters.map((sorter, i) => ({
       ...sorter,
       selected: i === index,
     }));

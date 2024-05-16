@@ -21,6 +21,5 @@ const sidebarSlice = createSlice({
     },
   },
 });
-
 export const { toggleSidebarWidth, setSidebarWidth } = sidebarSlice.actions;
 export default sidebarSlice.reducer;

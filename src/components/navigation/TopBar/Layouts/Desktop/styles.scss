@@ -21,11 +21,17 @@
         display: block;
         background-color: transparent;
         border: none;
+        cursor: pointer;
+        &:hover {
+          background-color: $light-gray;
+          border-radius: 100%;
+        }
       }
       .logo-container {
         display: flex;
         align-items: center;
         height: 7vh;
+        cursor: pointer;
         .logo {
           height: 100%;
         }

@@ -1,6 +1,7 @@
 @import "./../../../../App.scss";
 
 .sidebar.open {
+  width: 200px;
   background-color: $black-primary;
   z-index: 120;
   font-size: 15px;

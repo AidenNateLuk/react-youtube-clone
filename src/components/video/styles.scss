@@ -1,6 +1,5 @@
 @import "../App.scss";
 .vid__container {
-  height: 16.5rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -8,7 +7,7 @@
     box-sizing: border-box;
     margin-bottom: 0.5rem;
     .thumbnail {
-      width: 100%;
+      width: 100vw;
     }
   }
   .video__description {
@@ -49,6 +48,7 @@
   .vid__container {
     .video {
       .thumbnail {
+        width: 100%;
         border-radius: 15px;
       }
     }

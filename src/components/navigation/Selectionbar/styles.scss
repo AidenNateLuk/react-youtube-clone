@@ -1,54 +1,95 @@
 @import "../../App.scss";
-.top-bar-bottom {
-  padding: 1.15rem 0.5rem;
+.selection__bar {
+  padding: 0.5rem;
+  width: 100%;
   height: 5vh;
-  width: 100vw;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
   overflow-x: scroll;
   overflow-y: hidden;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-  .bottom__nav__icon__container {
-    cursor: pointer;
-    padding: 0.25rem 0.55rem;
-    margin: 0 0.45rem;
-    border-radius: 0.15rem;
-    background-color: hsla(0, 0%, 50%, 0.436);
+  .selection__bar__content {
+    width: max-content;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    height: 100%;
+    gap: 1rem;
+    > :first-child {
+      padding: 0 0.5rem !important;
+      border-radius: 2px !important;
+    }
+    .nav__container {
+      cursor: pointer;
+      height: 2rem;
+      padding: 0 0.75rem;
+      border-radius: 8px;
+      background-color: hsla(0, 0%, 50%, 0.436);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      .nav__icon {
+        background-color: transparent;
+        border: none;
+      }
+    }
+    :active {
+      background-color: white;
+      color: black;
+    }
   }
-  .bottom__nav__item__container {
-    background-color: hsla(0, 0%, 50%, 0.436);
-    cursor: pointer;
-    color: white;
-    padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    border: 1px transparent solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  :active {
-    background-color: white;
-    color: black;
+  .left__selection__index {
+    display: none;
   }
 }
-.top-bar-bottom::-webkit-scrollbar {
+.selection__bar::-webkit-scrollbar {
   display: none;
 }
 @media (min-width: 768px) {
-  .top-bar-bottom {
+  .selection__bar {
     background-color: $black-primary;
     border-bottom: none;
     z-index: 2;
-    .bottom__nav__icon__container {
-      display: none;
-      .explore__icon {
+    padding: 0;
+    width: 95vw;
+    .selection__bar__content {
+      > :first-child {
         display: none;
       }
     }
+    .left__selection__index {
+      height: 5vh;
+      width: 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: absolute;
+      background: linear-gradient(to left, transparent 2%, $black-primary 50%);
+      .icon {
+        color: white;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .right__selection__index {
+      right: 0;
+      height: 5vh;
+      width: 6vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      background: linear-gradient(to right, transparent 2%, $black-primary 50%);
+      &:hover {
+        cursor: pointer;
+      }
+      svg {
+        color: white;
+      }
+    }
+  }
+  .selection__bar.collapsed {
+    width: 87vw;
   }
 }
