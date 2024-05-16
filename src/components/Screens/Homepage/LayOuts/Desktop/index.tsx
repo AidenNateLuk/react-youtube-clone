@@ -4,7 +4,6 @@ import Selectionbar from "../../../../navigation/Selectionbar";
 interface DesktopProps {
   //selector Portion
 
-  updateSidebarWidth: () => void;
   selectedSorters: { id: number; subject: string; selected: boolean }[];
   handleSorterClick: (index: number) => void;
 
@@ -25,7 +24,6 @@ interface DesktopProps {
 }
 
 export const DesktopLayoutOne: React.FC<DesktopProps> = ({
-  updateSidebarWidth,
   selectedSorters,
   handleSorterClick,
   isSmallScreen,
@@ -36,7 +34,6 @@ export const DesktopLayoutOne: React.FC<DesktopProps> = ({
       <Selectionbar
         selectedSorters={selectedSorters}
         handleSorterClick={handleSorterClick}
-        updateSidebarWidth={updateSidebarWidth}
       />
       <div className="feed">
         {filteredVideos.slice(0, 5).map((video) => (

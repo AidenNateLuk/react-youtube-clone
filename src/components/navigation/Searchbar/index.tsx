@@ -6,13 +6,11 @@ import NorthWestOutlinedIcon from "@mui/icons-material/NorthWestOutlined";
 import "./styles.scss";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setSearch } from "../../../store/app/NavigationManagement/searchSlice";
-
-interface SearchbarProps {
-  handleSearch: (query: string) => void;
-  isSearching: boolean;
-}
-
+import {
+  initialState,
+  setSearch,
+} from "../../../store/app/NavigationManagement/searchSlice";
+import useBookSearch from "../../useSearch";
 interface SearchResultProps {
   id: number;
   result: string;
@@ -32,21 +30,19 @@ const SearchResult: React.FC<SearchResultProps> = ({ id, result }) => {
   );
 };
 
-const Searchbar: React.FC<SearchbarProps> = ({ handleSearch, isSearching }) => {
-  const [query, setQuery] = useState("");
+const Searchbar: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(setSearch(false));
     const encodedQuery = encodeURIComponent(query);
     console.log("Navigating to:", `/results?query=${encodedQuery}`);
-    navigate(`/results?query=${encodedQuery}`);
+    navigate(`/results?query=${encodeURIComponent(searchQuery)}`);
   };
+  const { query } = useBookSearch(searchQuery, 1);
   const dummyResults = [
     { id: 1, result: "Minecraft" },
     { id: 2, result: "Playing Minecraft Survival" },
@@ -57,11 +53,11 @@ const Searchbar: React.FC<SearchbarProps> = ({ handleSearch, isSearching }) => {
 
   return (
     <div
-      className={isSearching ? "search__container open" : "search__container"}
+      className={initialState ? "search__container open" : "search__container"}
     >
       <div className="search__bar__container">
         <ArrowBackIcon
-          onClick={() => handleSearch(`${query}`)}
+          onClick={() => navigate("/Home")}
           className="arrow__icon"
           style={{ color: "white" }}
         />
@@ -72,7 +68,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ handleSearch, isSearching }) => {
               className="search__bar__input"
               placeholder="Search YouTube"
               value={query}
-              onChange={handleInputChange}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <div className="search__icon__container">
               <button type="submit">

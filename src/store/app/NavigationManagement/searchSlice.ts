@@ -4,7 +4,7 @@ interface State {
   isSearching: boolean;
 }
 
-const initialState: State = {
+export const initialState: State = {
   isSearching: false,
 };
 

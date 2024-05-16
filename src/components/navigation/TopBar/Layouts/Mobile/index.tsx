@@ -4,7 +4,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import Searchbar from "../../../Searchbar";
 import { useNavigate } from "react-router-dom";
 
 interface TopBarProps {
@@ -22,8 +21,6 @@ const MobileLayout: React.FC<TopBarProps> = ({
   notificationState,
   updateNotificationState,
   handleSettings,
-  handleSearch,
-  isSearching,
 }) => {
   const navigate = useNavigate();
   return (
@@ -43,12 +40,13 @@ const MobileLayout: React.FC<TopBarProps> = ({
           >
             <img className="logo" src={LogoDark} alt="Logo" />
           </div>
-          <Searchbar isSearching={isSearching} handleSearch={handleSearch} />
         </div>
         <div className="top-r">
           <SearchIcon
             className="search__icon"
-            onClick={() => handleSearch()}
+            onClick={() => {
+              navigate("/Searching");
+            }}
             style={{ color: "white", fontFamily: "Roboto" }}
             fontSize="medium"
           />

@@ -4,7 +4,6 @@ import Video from "../../../../video";
 interface MobileProps {
   //selector Portion
 
-  updateSidebarWidth: () => void;
   selectedSorters: { id: number; subject: string; selected: boolean }[];
   handleSorterClick: (index: number) => void;
 
@@ -25,7 +24,6 @@ interface MobileProps {
 }
 
 const MobileLayout: React.FC<MobileProps> = ({
-  updateSidebarWidth,
   selectedSorters,
   handleSorterClick,
   isSmallScreen,
@@ -36,7 +34,6 @@ const MobileLayout: React.FC<MobileProps> = ({
       <Selectionbar
         selectedSorters={selectedSorters}
         handleSorterClick={handleSorterClick}
-        updateSidebarWidth={updateSidebarWidth}
       />
       <div className="video__container">
         {filteredVideos.map((video) => (

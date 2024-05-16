@@ -6,22 +6,23 @@ import { RootState, selectSidebarWidth } from "../../../store/store";
 import { changeLayout } from "../../../store/app/LayoutManagement/layoutslice";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { toggleSidebarWidth } from "../../../store/app/SidebarManagement/sidebarwidthSlice";
 
 interface SelectorProps {
-  updateSidebarWidth: () => void;
   selectedSorters: { id: number; subject: string; selected: boolean }[];
   handleSorterClick: (index: number) => void;
 }
 
 const Selectionbar: React.FC<SelectorProps> = ({
-  updateSidebarWidth,
   selectedSorters,
   handleSorterClick,
 }) => {
   const sidebarWidth = useSelector(selectSidebarWidth);
   const layoutHandler = useSelector((state: RootState) => state.layout);
   const dispatch = useDispatch();
-
+  const handleSideBar = () => {
+    dispatch(toggleSidebarWidth());
+  };
   const handleResize = useCallback(() => {
     const screenWidth = window.innerWidth;
     dispatch(changeLayout(screenWidth <= 768));
@@ -35,7 +36,6 @@ const Selectionbar: React.FC<SelectorProps> = ({
     };
   }, [dispatch, handleResize]);
   const isSmallScreen = layoutHandler.isSmallScreen;
-
   const [isLeftVisible, setIsLeftVisible] = useState(false);
   const [isRightVisible, setIsRightVisible] = useState(false);
   const [translate, setTranslate] = useState(0);
@@ -94,8 +94,8 @@ const Selectionbar: React.FC<SelectorProps> = ({
       >
         <button
           className="nav__container"
-          onClick={updateSidebarWidth}
           id="explore__icon"
+          onClick={handleSideBar}
         >
           <ExploreIcon style={{ color: "white" }} />
         </button>

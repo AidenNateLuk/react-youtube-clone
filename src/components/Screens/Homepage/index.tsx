@@ -8,11 +8,7 @@ import { changeLayout } from "../../../store/app/LayoutManagement/layoutslice";
 import { dummyVideos } from "../../../DummyData/dummyvideos";
 import { dummyArraySorters } from "../../../DummyData/dummySorters";
 
-interface HomepageProps {
-  updateSidebarWidth: () => void;
-}
-
-export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
+export const HomePage: React.FC = () => {
   const layoutHandler = useSelector((state: RootState) => state.layout);
   const dispatch = useDispatch();
   const [selectedSorters, setSelectedSorters] = useState(dummyArraySorters);
@@ -53,7 +49,6 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
         <MobileLayout
           selectedSorters={selectedSorters}
           handleSorterClick={handleSorterClick}
-          updateSidebarWidth={updateSidebarWidth}
           filteredVideos={filteredVideos}
           isSmallScreen={isSmallScreen}
         />
@@ -61,7 +56,6 @@ export const HomePage: React.FC<HomepageProps> = ({ updateSidebarWidth }) => {
         <DesktopLayoutOne
           selectedSorters={selectedSorters}
           handleSorterClick={handleSorterClick}
-          updateSidebarWidth={updateSidebarWidth}
           filteredVideos={filteredVideos}
           isSmallScreen={isSmallScreen}
         />

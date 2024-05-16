@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios"; // Import CancelTokenSource
 import { dummyVideos } from "../DummyData/dummyvideos";
 import { AxiosError } from "axios";
-const API_KEY = process.env.YOUTUBE_API_KEY;
+
+const API_KEY = "AIzaSyC7eq0Q8h3zHet1pcHkODMllc8VKWyXc6g";
 
 interface VideoItem {
   id: number;
@@ -56,5 +57,5 @@ export default function useBookSearch(query: string, pageNumber: number) {
     return () => source.cancel();
   }, [query, pageNumber]);
 
-  return { loading, error, videos, hasMore };
+  return { loading, error, videos, hasMore, query };
 }

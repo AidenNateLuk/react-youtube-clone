@@ -1,18 +1,14 @@
-import { HomePage } from "./Screens/Homepage";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import { LoginScreen } from "./Screens/LoginScreen";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "./Layout/layout";
-import { VideoScreen } from "./Screens/VideoScreen";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import "./App.scss";
 import { toggleSidebarWidth } from "../store/app/SidebarManagement/sidebarwidthSlice";
+import { LoginScreen } from "./Screens/LoginScreen";
 import ResultsScreen from "./Screens/ResultsScreen";
+import { VideoScreen } from "./Screens/VideoScreen";
+import { HomePage } from "./Screens/Homepage";
+import Searchbar from "./navigation/Searchbar";
 
 const App: React.FC = () => {
   const sidebarWidth = useSelector(
@@ -26,54 +22,20 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/Home/*"
-          element={
-            <Layout
-              sidebarWidth={sidebarWidth}
-              updateSidebarWidth={updateSidebarWidth}
-            >
-              <Routes>
-                <Route
-                  index
-                  element={<HomePage updateSidebarWidth={updateSidebarWidth} />}
-                />
-              </Routes>
-            </Layout>
-          }
-        />
-        <Route
-          path="/results/*"
-          element={
-            <Layout
-              sidebarWidth={sidebarWidth}
-              updateSidebarWidth={updateSidebarWidth}
-            >
-              <Routes>
-                <Route index element={<ResultsScreen />} />
-              </Routes>
-            </Layout>
-          }
-        />
-
-        <Route
-          path="/Watch/*"
-          element={
-            <Layout
-              sidebarWidth={sidebarWidth}
-              updateSidebarWidth={updateSidebarWidth}
-            >
-              <Routes>
-                <Route element={<VideoScreen />} />
-              </Routes>
-            </Layout>
-          }
-        />
-        <Route path="/" element={<LoginScreen />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <Layout
+        sidebarWidth={sidebarWidth}
+        updateSidebarWidth={updateSidebarWidth}
+      >
+        <Routes>
+          <Route path="Searching" element={<Searchbar />} />
+          <Route path="/Home/*" element={<HomePage />} />
+          <Route path="/results/:query" element={<ResultsScreen />} />{" "}
+          <Route path="/Watch/*" element={<VideoScreen />} />
+          <Route path="/login" element={<LoginScreen />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 };
+
 export default App;
