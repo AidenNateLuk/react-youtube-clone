@@ -3,7 +3,7 @@ import axios from "axios"; // Import CancelTokenSource
 import { dummyVideos } from "../DummyData/dummyvideos";
 import { AxiosError } from "axios";
 
-const API_KEY = "AIzaSyC7eq0Q8h3zHet1pcHkODMllc8VKWyXc6g";
+// const API_KEY = "AIzaSyC7eq0Q8h3zHet1pcHkODMllc8VKWyXc6g";
 
 interface VideoItem {
   id: number;
@@ -36,8 +36,7 @@ export default function useBookSearch(query: string, pageNumber: number) {
       method: "GET",
       url: "https://www.googleapis.com/youtube/v3/search",
       params: {
-        key: API_KEY,
-        q: query,
+        q: "query",
         part: "snippet",
         maxResults: 10,
         pageToken: pageNumber,

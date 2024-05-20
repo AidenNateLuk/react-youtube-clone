@@ -17,6 +17,6 @@ const querySlice = createSlice({
     },
   },
 });
-
+export const selectQuery = (state: { query: QueryState }) => state.query.query;
 export const { setQuery } = querySlice.actions;
 export default querySlice.reducer;

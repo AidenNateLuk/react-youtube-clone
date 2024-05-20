@@ -11,6 +11,7 @@ import {
   setSearch,
 } from "../../../store/app/NavigationManagement/searchSlice";
 import useBookSearch from "../../useSearch";
+import { setQuery } from "../../../store/app/NavigationManagement/querySlice";
 interface SearchResultProps {
   id: number;
   result: string;
@@ -34,13 +35,13 @@ const Searchbar: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(setSearch(false));
     const encodedQuery = encodeURIComponent(query);
     console.log("Navigating to:", `/results?query=${encodedQuery}`);
     navigate(`/results?query=${encodeURIComponent(searchQuery)}`);
+    dispatch(setQuery(searchQuery));
   };
   const { query } = useBookSearch(searchQuery, 1);
   const dummyResults = [

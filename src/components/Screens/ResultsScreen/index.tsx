@@ -1,14 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-
+import { selectQuery } from "../../../store/app/NavigationManagement/querySlice";
+import { useSelector } from "react-redux";
 const ResultsScreen: React.FC = () => {
-  // Extract the query parameter from the route
-  const { query } = useParams();
-  // Use the query to fetch search results or perform any other actions
+  const query = useSelector(selectQuery);
+
   return (
     <div>
       <h1>Results for: {query}</h1>
-      {/* Display search results here */}
     </div>
   );
 };
