@@ -9,6 +9,7 @@ interface VideoProps {
   channelName: string;
   tags: string[];
   isSmallScreen: boolean;
+  duration: string;
 }
 
 const Video: React.FC<VideoProps> = ({
@@ -18,6 +19,7 @@ const Video: React.FC<VideoProps> = ({
   channelName,
   url,
   tags,
+  duration,
 }) => {
   return isSmallScreen ? (
     <MobileLayout
@@ -27,6 +29,7 @@ const Video: React.FC<VideoProps> = ({
       title={title}
       views={views}
       channelName={channelName}
+      duration={duration}
     />
   ) : (
     <DesktopLayout
@@ -36,6 +39,7 @@ const Video: React.FC<VideoProps> = ({
       title={title}
       views={views}
       channelName={channelName}
+      duration={duration}
     />
   );
 };

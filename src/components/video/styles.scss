@@ -4,10 +4,20 @@
   justify-content: center;
   flex-direction: column;
   .video {
+    position: relative;
     box-sizing: border-box;
     margin-bottom: 0.5rem;
     .thumbnail {
       width: 100vw;
+    }
+    .duration {
+      position: absolute; /* Position the duration absolutely */
+      bottom: 0; /* Position it at the top */
+      right: 0; /* Position it at the right */
+      background-color: rgba(0, 0, 0, 0.3); /* Add transparency */
+      color: white;
+      padding: 0.25rem 0.5rem; /* Add padding for better visibility */
+      border-top-left-radius: 15px; /* Match the thumbnail border radius */
     }
   }
   .video__description {

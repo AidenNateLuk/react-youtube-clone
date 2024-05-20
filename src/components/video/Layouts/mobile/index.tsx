@@ -1,6 +1,7 @@
 import ProfilePic from "../../../../assets/unnamed.jpg";
 import Thumbnail from "../../../../assets/images.jpeg";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useNavigate } from "react-router-dom";
 interface VideoProps {
   title: string;
   url: string;
@@ -8,13 +9,27 @@ interface VideoProps {
   channelName: string;
   tags: string[];
   isSmallScreen: boolean;
+  duration: string;
 }
 
-const MobileLayout: React.FC<VideoProps> = ({ title, views, channelName }) => {
+const MobileLayout: React.FC<VideoProps> = ({
+  title,
+  views,
+  channelName,
+  duration,
+}) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="vid__container">
+    <div
+      className="vid__container"
+      onClick={() => {
+        navigate("/Watch/*");
+      }}
+    >
       <div className="video">
         <img className="thumbnail" src={Thumbnail} alt="Thumbnail" />
+        <p className="duration">{duration}</p>
       </div>
       <div className="video__description">
         <div className="profile__picture">

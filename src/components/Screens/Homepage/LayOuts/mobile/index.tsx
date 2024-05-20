@@ -16,6 +16,7 @@ interface MobileProps {
     views: string;
     url: string;
     tags: string[];
+    duration: string;
   }[];
 
   //isSmallScreen
@@ -38,6 +39,7 @@ const MobileLayout: React.FC<MobileProps> = ({
       <div className="video__container">
         {filteredVideos.map((video) => (
           <Video
+            duration={video.duration}
             isSmallScreen={isSmallScreen}
             key={video.id}
             title={video.title}

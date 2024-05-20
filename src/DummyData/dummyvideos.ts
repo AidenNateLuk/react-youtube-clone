@@ -4,6 +4,7 @@ interface VideoItem {
   channelName: string;
   views: string;
   url: string;
+  duration: string;
   tags: string[];
 }
 
@@ -15,6 +16,7 @@ export const dummyVideos: VideoItem[] = [
     views: "1mil",
     url: "dummy_video_1.mp4",
     tags: ["Gaming", "All"],
+    duration: "11:21",
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ export const dummyVideos: VideoItem[] = [
     views: "200k",
     url: "dummy_video_2.mp4",
     tags: ["React", "All"],
+    duration: "10:15",
   },
   {
     id: 3,
@@ -30,6 +33,7 @@ export const dummyVideos: VideoItem[] = [
     channelName: "HistoryOfTheWorld",
     views: "800k",
     url: "dummy_video_3.mp4",
+    duration: "05:10",
     tags: ["History", "All"],
   },
   {
@@ -38,6 +42,7 @@ export const dummyVideos: VideoItem[] = [
     channelName: "PewDiePie",
     views: "800k",
     url: "dummy_video_3.mp4",
+    duration: "07:02",
     tags: ["Gaming", "All"],
   },
   {
@@ -46,6 +51,7 @@ export const dummyVideos: VideoItem[] = [
     channelName: "Ssundee",
     views: "1mil",
     url: "dummy_video_3.mp4",
+    duration: "20:50",
     tags: ["Gaming", "All"],
   },
 ];
