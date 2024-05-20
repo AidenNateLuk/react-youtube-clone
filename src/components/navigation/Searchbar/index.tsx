@@ -15,11 +15,18 @@ import { setQuery } from "../../../store/app/NavigationManagement/querySlice";
 interface SearchResultProps {
   id: number;
   result: string;
+  onClick: (result: string) => void;
 }
 
-const SearchResult: React.FC<SearchResultProps> = ({ id, result }) => {
+const SearchResult: React.FC<SearchResultProps> = ({ id, result, onClick }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    onClick(result);
+    navigate(`/results?query=${encodeURIComponent(result)}`);
+  };
   return (
-    <div className="results__container" key={id}>
+    <div className="results__container" key={id} onClick={handleClick}>
       <p className="search__result">{result}</p>
       <div className="completer__container">
         <NorthWestOutlinedIcon
@@ -51,7 +58,9 @@ const Searchbar: React.FC = () => {
     { id: 4, result: "Playing Minecraft Skyblock" },
     { id: 5, result: "Playing Pokemon in Minecraft" },
   ];
-
+  const handleResultClick = (result: string) => {
+    setSearchQuery(result);
+  };
   return (
     <div
       className={initialState ? "search__container open" : "search__container"}
@@ -84,7 +93,12 @@ const Searchbar: React.FC = () => {
       </div>
       <div className="search__results">
         {dummyResults.map((result) => (
-          <SearchResult key={result.id} id={result.id} result={result.result} />
+          <SearchResult
+            key={result.id}
+            id={result.id}
+            result={result.result}
+            onClick={handleResultClick}
+          />
         ))}
       </div>
     </div>

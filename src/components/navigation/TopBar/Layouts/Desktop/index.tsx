@@ -7,10 +7,14 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsModal from "./SettingsModal";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import { useDispatch, useSelector } from "react-redux";
 import { dummyVideos } from "../../../../../DummyData/dummyvideos";
+import { selectQuery } from "../../../../../store/app/NavigationManagement/querySlice";
+import { setQuery } from "../../../../../store/app/NavigationManagement/querySlice";
 import "./styles.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 interface TopBarProps {
   sidebarWidth: number;
   updateSidebarWidth: () => void;
@@ -25,12 +29,23 @@ const DesktopLayout: React.FC<TopBarProps> = ({
   updateNotificationState,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const query = useSelector(selectQuery);
   // Function to toggle the modal state
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
+  const [searchQuery, setSearchQuery] = useState("");
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSearchQuery(searchQuery);
+    const encodedQuery = encodeURIComponent(query);
+    console.log("Navigating to:", `/results?query=${encodedQuery}`);
+    navigate(`/results?query=${encodeURIComponent(query)}`);
+    dispatch(setQuery(searchQuery));
+  };
   return (
     <>
       <div className="top-bar-container">
@@ -47,30 +62,33 @@ const DesktopLayout: React.FC<TopBarProps> = ({
             <img className="logo" src={LogoDark} alt="Logo" />
           </div>
         </div>
-        <div className="top__middle">
-          <Autocomplete
-            className="desktop__searchbar"
-            freeSolo
-            disableClearable
-            options={dummyVideos.map((video) => video.title)}
-            renderInput={(video) => (
-              <TextField
-                {...video}
-                InputProps={{
-                  ...video.InputProps,
-                  type: "search",
-                }}
-              />
-            )}
-          />
-
-          <div className="icon__container">
-            <SearchIcon
-              className="search__icon"
-              style={{ color: "white", fontFamily: "Roboto" }}
-              fontSize="medium"
+        <div>
+          <form className="top__middle" onSubmit={handleSubmit}>
+            <Autocomplete
+              value={query}
+              className="desktop__searchbar"
+              freeSolo
+              disableClearable
+              options={dummyVideos.map((video) => video.title)}
+              renderInput={(video) => (
+                <TextField
+                  onChange={(e) => dispatch(setQuery(e.target.value))}
+                  {...video}
+                  InputProps={{
+                    ...video.InputProps,
+                    type: "search",
+                  }}
+                />
+              )}
             />
-          </div>
+            <div className="icon__container">
+              <SearchIcon
+                className="search__icon"
+                style={{ color: "white", fontFamily: "Roboto" }}
+                fontSize="medium"
+              />
+            </div>
+          </form>
         </div>
         <div className="top-r">
           <button className="create__video__icon">
