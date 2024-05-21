@@ -53,6 +53,7 @@
     padding: 0;
     width: 95vw;
     .selection__bar__content {
+      transition: transform 0.5s ease-in-out;
       > :first-child {
         display: none;
       }

@@ -34,17 +34,15 @@ const DesktopLayout: React.FC<TopBarProps> = ({
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
-  const [searchQuery, setSearchQuery] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSearchQuery(searchQuery);
     const encodedQuery = encodeURIComponent(query);
     console.log("Navigating to:", `/results?query=${encodedQuery}`);
     navigate(`/results?query=${encodeURIComponent(query)}`);
-    dispatch(setQuery(searchQuery));
+    dispatch(setQuery(query));
   };
   return (
     <>

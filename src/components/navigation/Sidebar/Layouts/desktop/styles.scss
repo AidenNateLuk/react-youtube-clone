@@ -1,12 +1,16 @@
 @import "./../../../../App.scss";
-
+.sidebar {
+  margin-right: 2rem;
+}
 .sidebar.open {
-  width: 200px;
+  margin-right: 1rem;
+  width: 300px;
   background-color: $black-primary;
   z-index: 120;
   font-size: 15px;
   font-weight: 200;
   .sidebar__content {
+    width: 100%;
     color: white;
     .section {
       gap: 0.25rem;
@@ -14,11 +18,13 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      padding: 0.25rem;
+      padding: 0.5rem;
+
       .sidebar__path {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin: 0.25rem 0;
       }
     }
   }
