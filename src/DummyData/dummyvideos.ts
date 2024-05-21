@@ -1,4 +1,4 @@
-interface VideoItem {
+export interface VideoItem {
   id: number;
   title: string;
   channelName: string;

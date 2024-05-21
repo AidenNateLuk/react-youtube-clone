@@ -5,6 +5,7 @@
   .video__container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
   }
 }
@@ -16,25 +17,15 @@
       display: flex;
       justify-content: left;
       .video__container {
+        width: 100%;
         padding: 1rem;
         .vid__container {
+          width: 100%;
           display: flex;
           flex-direction: row;
-          gap: 5rem;
+          gap: 2rem;
           .video {
-            width: 30rem;
-          }
-          .video__description {
-            display: flex;
-            .video__description__title {
-              width: 20rem;
-              flex-direction: column-reverse;
-              align-items: flex-start;
-              h2 {
-                font-size: 1.5rem;
-                font-weight: 400;
-              }
-            }
+            width: 50%;
           }
         }
       }

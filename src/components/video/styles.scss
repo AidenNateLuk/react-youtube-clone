@@ -101,13 +101,23 @@
     }
     .video__description__results {
       display: flex;
-      flex-direction: row-reverse;
+      flex-direction: column;
+      width: 50%;
+      svg {
+        fill: transparent;
+      }
+      &:hover {
+        svg {
+          fill: white;
+        }
+      }
       .video__description__text {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
         h2 {
           color: white;
+          cursor: pointer;
+          margin-bottom: 0.5rem;
         }
         p {
           color: $text-color;
