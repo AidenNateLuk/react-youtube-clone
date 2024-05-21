@@ -7,6 +7,7 @@
     position: relative;
     box-sizing: border-box;
     margin-bottom: 0.5rem;
+    cursor: pointer;
     .thumbnail {
       width: 100vw;
     }
@@ -22,6 +23,7 @@
   }
   .video__description {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
     .video__description__text {
@@ -34,15 +36,22 @@
         font-size: 15px;
         color: white;
       }
-      p {
-        color: $text-color;
-        font-size: 12px;
+      .info__section {
+        display: flex;
+        .video__info {
+          color: $text-color;
+          font-size: 12px;
+        }
+        .channel__name {
+          color: $text-color;
+          font-size: 12px;
+        }
       }
     }
     .profile__picture {
       height: 2.5rem;
       width: 2.5rem;
-      border: $border-color 1px solid;
+      border: 1px solid transparent;
       border-radius: 50%;
       box-sizing: border-box;
       img {
@@ -63,30 +72,64 @@
       }
     }
     .video__description {
-      align-items: flex-start;
-      display: flex;
-      flex-direction: column;
-      .video__description__title {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-        img {
-          height: 2.5rem;
-          width: 2.5rem;
-          border: $border-color 1px solid;
-          border-radius: 50%;
-          box-sizing: border-box;
-        }
-        h2 {
-          color: white;
-          font-size: 15px;
+      justify-content: left;
+      gap: 1.5rem;
+      svg {
+        margin: auto;
+        fill: transparent;
+      }
+
+      &:hover {
+        svg {
+          fill: white;
         }
       }
       .video__description__text {
-        margin-left: 3.5rem;
+        cursor: pointer;
+        h2 {
+          color: white;
+          font-size: 17px;
+        }
+        .info__section {
+          flex-direction: column;
+          .video__info {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .video__description__results {
+      display: flex;
+      flex-direction: row-reverse;
+      .video__description__text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        h2 {
+          color: white;
+        }
         p {
-          font-size: 14px;
+          color: $text-color;
+        }
+        .info__section {
+          margin-top: 1rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 1rem;
+          color: $text-color;
+          .profile__picture {
+            height: 2.5rem;
+            width: 2.5rem;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            box-sizing: border-box;
+            img {
+              border: none;
+              height: 100%;
+              border-radius: 50%;
+            }
+          }
         }
       }
     }

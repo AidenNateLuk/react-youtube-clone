@@ -30,7 +30,7 @@ const App: React.FC = () => {
           <Route path="Searching" element={<Searchbar />} />
           <Route path="/Home/*" element={<HomePage />} />
           <Route path="/results" element={<ResultsScreen />} />
-          <Route path="/Watch/*" element={<VideoScreen />} />
+          <Route path="/Watch" element={<VideoScreen />} />
           <Route path="/login" element={<LoginScreen />} />
         </Routes>
       </Layout>

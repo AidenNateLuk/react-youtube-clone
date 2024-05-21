@@ -4,7 +4,7 @@ interface State {
   isSmallScreen: boolean;
 }
 
-const initialState: State = {
+export const initialState: State = {
   isSmallScreen: false,
 };
 
@@ -18,4 +18,5 @@ const layoutSlice = createSlice({
   },
 });
 export const { changeLayout } = layoutSlice.actions;
+
 export default layoutSlice.reducer;
