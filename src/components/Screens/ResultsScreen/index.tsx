@@ -23,6 +23,8 @@ const ResultsScreen: React.FC = () => {
           <div className="video__container">
             {filteredVideos.map((video) => (
               <Video
+                id={video.id}
+                description={video.description}
                 duration={video.duration}
                 key={video.id}
                 title={video.title}

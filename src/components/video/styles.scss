@@ -12,9 +12,10 @@
       width: 100vw;
     }
     .duration {
-      position: absolute; /* Position the duration absolutely */
-      bottom: 0; /* Position it at the top */
-      right: 0; /* Position it at the right */
+      position: absolute;
+      font-size: 12px;
+      bottom: 4px;
+      right: 0;
       background-color: rgba(0, 0, 0, 0.3); /* Add transparency */
       color: white;
       padding: 0.25rem 0.5rem; /* Add padding for better visibility */
@@ -112,7 +113,7 @@
           color: $text-color;
         }
         .info__section {
-          margin-top: 1rem;
+          margin: 1rem 0;
           display: flex;
           flex-direction: row;
           align-items: center;

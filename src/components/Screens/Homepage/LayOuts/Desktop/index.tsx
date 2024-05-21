@@ -17,6 +17,7 @@ interface DesktopProps {
     url: string;
     tags: string[];
     duration: string;
+    description: string;
   }[];
 
   //isSmallScreen
@@ -39,6 +40,8 @@ export const DesktopLayoutOne: React.FC<DesktopProps> = ({
       <div className="feed">
         {filteredVideos.slice(0, 5).map((video) => (
           <Video
+            description={video.description}
+            id={video.id}
             duration={video.duration}
             key={video.id}
             title={video.title}

@@ -16,6 +16,7 @@ interface VideoProps {
   tags: string[];
   isSmallScreen: boolean;
   duration: string;
+  description: string;
 }
 
 const Video: React.FC<VideoProps> = ({
@@ -24,6 +25,7 @@ const Video: React.FC<VideoProps> = ({
   channelName,
   duration,
   id,
+  description,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -56,26 +58,25 @@ const Video: React.FC<VideoProps> = ({
         <img className="thumbnail" src={Thumbnail} alt="Thumbnail" />
         <p className="duration">{duration}</p>
       </div>
-      {!isResultsRoute ||
-        (isSmallScreen && (
-          <div className="video__description">
-            <MoreVertIcon style={{ color: "white" }} />
-            <div className="video__description__text">
-              <h2>{title}</h2>
-              <div className="info__section">
-                <p className="channel__name">{channelName}</p>
-                {isSmallScreen ? (
-                  <p className="video__info">· {views} views · 5 months ago</p>
-                ) : (
-                  <p className="video__info">{views} views · 5 months ago</p>
-                )}
-              </div>
-            </div>
-            <div className="profile__picture">
-              <img src={ProfilePic} alt="" />
+      {!isResultsRoute && (
+        <div className="video__description">
+          <MoreVertIcon style={{ color: "white" }} />
+          <div className="video__description__text">
+            <h2>{title}</h2>
+            <div className="info__section">
+              <p className="channel__name">{channelName}</p>
+              {isSmallScreen ? (
+                <p className="video__info">· {views} views · 5 months ago</p>
+              ) : (
+                <p className="video__info">{views} views · 5 months ago</p>
+              )}
             </div>
           </div>
-        ))}
+          <div className="profile__picture">
+            <img src={ProfilePic} alt="" />
+          </div>
+        </div>
+      )}
       {isResultsRoute && !isSmallScreen && (
         <div className="video__description__results">
           <MoreVertIcon style={{ color: "white" }} />
@@ -92,6 +93,7 @@ const Video: React.FC<VideoProps> = ({
               </div>
               <p className="channel__name">{channelName}</p>
             </div>
+            <p className="description">{description}</p>
           </div>
         </div>
       )}
