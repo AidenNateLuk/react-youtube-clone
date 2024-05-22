@@ -63,13 +63,13 @@ const DesktopLayout: React.FC<TopBarProps> = ({
         <div>
           <form className="top__middle" onSubmit={handleSubmit}>
             <Autocomplete
-              value={query}
               className="desktop__searchbar"
               freeSolo
               disableClearable
               options={dummyVideos.map((video) => video.title)}
               renderInput={(video) => (
                 <TextField
+                  value={query}
                   onChange={(e) => dispatch(setQuery(e.target.value))}
                   {...video}
                   InputProps={{

@@ -18,7 +18,7 @@ const ResultsScreen: React.FC = () => {
 
   return (
     <div className="results__container">
-      <h2>Showing results for: {query}</h2>
+      {!isSmallScreen && <h2>Showing results for: {query}</h2>}
       <div className="feed">
         {filteredVideos.length > 0 ? (
           <div className="video__container">

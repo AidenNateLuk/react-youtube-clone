@@ -5,7 +5,7 @@ interface State {
   sidebarWidth: number;
 }
 
-const initialState: State = {
+export const initialState: State = {
   sidebarWidth: 75,
 };
 

@@ -1,13 +1,13 @@
 import Video from "../../../../video";
 import Selectionbar from "../../../../navigation/Selectionbar";
+import { useSelector } from "react-redux";
+import { selectSidebarWidth } from "../../../../../store/store";
 
 interface DesktopProps {
   //selector Portion
 
   selectedSorters: { id: number; subject: string; selected: boolean }[];
   handleSorterClick: (index: number) => void;
-
-  //filtered videos Array
 
   filteredVideos: {
     id: number;
@@ -31,8 +31,15 @@ export const DesktopLayoutOne: React.FC<DesktopProps> = ({
   isSmallScreen,
   filteredVideos,
 }) => {
+  const sidebarWidth = useSelector(selectSidebarWidth);
   return (
-    <div className="homepage__container">
+    <div
+      className={
+        sidebarWidth < 175
+          ? "homepage__container"
+          : "homepage__container collapsed"
+      }
+    >
       <Selectionbar
         selectedSorters={selectedSorters}
         handleSorterClick={handleSorterClick}

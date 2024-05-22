@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100vw;
+  overflow-x: hidden;
   .video__container {
     display: flex;
     flex-direction: column;
@@ -12,19 +13,39 @@
 }
 @media (min-width: 768px) {
   .homepage__container {
-    width: 90vw;
+    width: 100vw;
     .feed {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 0.5rem;
+      width: 100%;
 
       .vid__container {
+        width: 100%;
+        max-width: 330px;
+        height: auto;
         display: flex;
         flex-direction: column;
         gap: 1rem;
+
         .video {
-          height: 170px;
-          width: 317px;
+          width: 100%;
         }
+
+        .video__description {
+          display: flex;
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+
+  .homepage__container.collapsed {
+    width: 87vw;
+
+    .feed {
+      .vid__container {
+        max-width: 300px; // Adjust to fit the new column size
       }
     }
   }
