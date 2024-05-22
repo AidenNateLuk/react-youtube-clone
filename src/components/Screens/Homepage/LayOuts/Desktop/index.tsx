@@ -45,7 +45,7 @@ export const DesktopLayoutOne: React.FC<DesktopProps> = ({
         handleSorterClick={handleSorterClick}
       />
       <div className="feed">
-        {filteredVideos.slice(0, 5).map((video) => (
+        {filteredVideos.map((video) => (
           <Video
             description={video.description}
             id={video.id}

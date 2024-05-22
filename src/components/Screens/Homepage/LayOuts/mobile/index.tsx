@@ -1,10 +1,10 @@
+import React, { useState, useEffect, useRef } from "react";
 import Selectionbar from "../../../../navigation/Selectionbar";
 import Video from "../../../../video";
 
 interface MobileProps {
   selectedSorters: { id: number; subject: string; selected: boolean }[];
   handleSorterClick: (index: number) => void;
-
   filteredVideos: {
     id: number;
     title: string;
@@ -15,9 +15,6 @@ interface MobileProps {
     duration: string;
     description: string;
   }[];
-
-  //isSmallScreen
-
   isSmallScreen: boolean;
 }
 
@@ -27,14 +24,37 @@ const MobileLayout: React.FC<MobileProps> = ({
   isSmallScreen,
   filteredVideos,
 }) => {
+  const [numVideosRendered, setNumVideosRendered] = useState(3);
+
+  const videosRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        videosRef.current &&
+        window.innerHeight + window.scrollY >=
+          videosRef.current.offsetTop + videosRef.current.offsetHeight
+      ) {
+        setNumVideosRendered((prevNum) =>
+          Math.min(prevNum + 3, filteredVideos.length)
+        );
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [filteredVideos]);
+
   return (
     <div className="homepage__container">
       <Selectionbar
         selectedSorters={selectedSorters}
         handleSorterClick={handleSorterClick}
       />
-      <div className="video__container">
-        {filteredVideos.map((video) => (
+      <div className="video__container" ref={videosRef}>
+        {filteredVideos.slice(0, numVideosRendered).map((video) => (
           <Video
             id={video.id}
             description={video.description}

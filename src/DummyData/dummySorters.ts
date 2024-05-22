@@ -1,4 +1,4 @@
-interface SorterItem {
+export interface SorterItem {
   id: number;
   subject: string;
   selected: boolean;
